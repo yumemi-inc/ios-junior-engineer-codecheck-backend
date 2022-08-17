@@ -26,6 +26,12 @@ struct EndPoint {
 
 extension EndPoint {
     
+    private static let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+    
     private static let jsonEncoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -34,7 +40,7 @@ extension EndPoint {
     
     static func askFortune(from request: IncomingRequest) async throws -> Data {
         
-        let info = try await request.body.decode(ProvidedInfo.self)
+        let info = try await request.body.decode(ProvidedInfo.self, decoder: jsonDecoder)
         let fortune = FortuneTeller.fortuneForYou(
             name: info.name,
             birthday: info.birthday,
