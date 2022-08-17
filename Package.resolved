@@ -8,6 +8,15 @@
         "revision" : "6ad4ec6af8601e565c9e339d3565c987ae8fed78",
         "version" : "1.7.0"
       }
+    },
+    {
+      "identity" : "fake-fortune-telling",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yumemi-inc/fake-fortune-telling",
+      "state" : {
+        "revision" : "3b7c745485ce6fbea1ef35e457c5dbe4c01de7c2",
+        "version" : "0.1.2"
+      }
     }
   ],
   "version" : 2

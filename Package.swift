@@ -24,7 +24,7 @@ let package = Package(
         .executableTarget(
             name: "EndPoint",
             dependencies: [
-                "Compute",
+                .product(name: "Compute", package: "Compute"),
                 .product(name: "FakeFortuneTelling", package: "fake-fortune-telling"),
             ]),
         .testTarget(
