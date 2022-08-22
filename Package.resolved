@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "compute",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-cloud/Compute",
+      "state" : {
+        "revision" : "6ad4ec6af8601e565c9e339d3565c987ae8fed78",
+        "version" : "1.7.0"
+      }
+    },
+    {
+      "identity" : "fake-fortune-telling",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yumemi-inc/fake-fortune-telling",
+      "state" : {
+        "revision" : "9e270f75d04bd004d0600b6b40c6d8590196ca6e",
+        "version" : "0.1.4"
+      }
+    }
+  ],
+  "version" : 2
+}
