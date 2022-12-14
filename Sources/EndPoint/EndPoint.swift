@@ -9,7 +9,6 @@ struct EndPoint {
         try await onIncomingRequest(router.run)
     }
     
-    private static let versionPathID = "version"
     private static let myFortunePath = "my_fortune"
     
     static let router = Router()
@@ -18,14 +17,13 @@ struct EndPoint {
                 .status(.ok)
                 .send("Hello, World!")
         }
-        .get("/:\(versionPathID)/\(myFortunePath)") { req, res in
-            let version = try VersionInPath(versionString: req.pathParams[versionPathID]!)
-            switch version {
-            case .v1:
-                try await handleFortuneRoute(request: req, response: res)
-            }
-        }
-        .get(myFortunePath, handleFortuneRoute(request:response:))
+        .get(myFortunePath, mayAppendingAfterParameter: VersionInPath.versionPathID, handleFortuneRoute(request:response:))
+    
+}
+
+extension Router {
+    
+    
     
 }
 
@@ -33,11 +31,15 @@ extension EndPoint {
     
     static func handleFortuneRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
         
-        let result = try await askFortune(from: request)
-        try await response
-            .status(.ok)
-            .send(result)
-
+        let version = try VersionInPath(request: request) ?? .v1
+        
+        switch version {
+        case .v1:
+            let result = try await askFortune(from: request)
+            try await response
+                .status(.ok)
+                .send(result)
+        }
         
     }
     
