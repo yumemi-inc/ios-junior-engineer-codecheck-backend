@@ -9,18 +9,37 @@ struct EndPoint {
         try await onIncomingRequest(router.run)
     }
     
+    private static let versionPathID = "version"
+    private static let myFortunePath = "my_fortune"
+    
     static let router = Router()
         .get("") { req, res in
             try await res
                 .status(.ok)
                 .send("Hello, World!")
         }
-        .get("/my_fortune") { req, res in
-            let result = try await askFortune(from: req)
-            try await res
-                .status(.ok)
-                .send(result)
+        .get("/:\(versionPathID)/\(myFortunePath)") { req, res in
+            let version = try VersionInPath(versionString: req.pathParams[versionPathID]!)
+            switch version {
+            case .v1:
+                try await handleFortuneRoute(request: req, response: res)
+            }
         }
+        .get(myFortunePath, handleFortuneRoute(request:response:))
+    
+}
+
+extension EndPoint {
+    
+    static func handleFortuneRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
+        
+        let result = try await askFortune(from: request)
+        try await response
+            .status(.ok)
+            .send(result)
+
+        
+    }
     
 }
 
