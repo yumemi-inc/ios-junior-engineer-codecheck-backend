@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  VersionPath.swift
 //  
 //
 //  Created by 史 翔新 on 2022/12/15.
@@ -16,7 +16,13 @@ enum VersionInPath {
     
     case v1
     
-    init(versionString: String) throws {
+    static let versionPathID = "version"
+    
+    init?(request: IncomingRequest) throws {
+        
+        guard let versionString = request.pathParams[Self.versionPathID] else {
+            return nil
+        }
         
         switch versionString {
         case "v1":
