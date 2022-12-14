@@ -41,13 +41,14 @@ extension EndPoint {
     static func askFortune(from request: IncomingRequest) async throws -> Data {
         
         let info = try await request.body.decode(ProvidedInfo.self, decoder: jsonDecoder)
-        let fortune = FortuneTeller.fortuneForYou(
+        let prefecture = FortuneTeller.prefectureForYou(
             name: info.name,
             birthday: info.birthday,
             bloodType: info.bloodType,
             today: info.today
         )
-        let encoded = try jsonEncoder.encode(fortune)
+        let result = ReturningInfo(prefecture: prefecture)
+        let encoded = try jsonEncoder.encode(result)
         
         return encoded
         
@@ -61,5 +62,19 @@ private struct ProvidedInfo: Decodable {
     let bloodType: BloodType
     let birthday: YearMonthDay
     let today: YearMonthDay
+    
+}
+
+private struct ReturningInfo: Encodable {
+    
+    let name: String
+    let capital: String
+    let brief: String
+    
+    init(prefecture: Prefecture) {
+        self.name = prefecture.name
+        self.capital = prefecture.capital
+        self.brief = prefecture.brief
+    }
     
 }
