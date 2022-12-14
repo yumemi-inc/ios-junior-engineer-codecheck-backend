@@ -41,7 +41,7 @@ extension EndPoint {
     static func askFortune(from request: IncomingRequest) async throws -> Data {
         
         let info = try await request.body.decode(ProvidedInfo.self, decoder: jsonDecoder)
-        let fortune = FortuneTeller.fortuneForYou(
+        let fortune = FortuneTeller.prefectureForYou(
             name: info.name,
             birthday: info.birthday,
             bloodType: info.bloodType,
