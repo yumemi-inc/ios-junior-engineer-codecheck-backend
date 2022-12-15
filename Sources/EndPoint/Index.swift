@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import Ink
 
-let indexContent = #"""
+struct Index {
+    
+    private let markdownParser = MarkdownParser()
+    
+    let html: String
+    
+    init() {
+        html = markdownParser.parse(content).html
+    }
+    
+}
+
+private let content = #"""
     # 株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題
 
     ## 概要
