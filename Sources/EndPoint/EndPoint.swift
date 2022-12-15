@@ -18,7 +18,7 @@ struct EndPoint {
                 .status(.ok)
                 .send("Hello, World!")
         }
-        .all(myFortunePath, handleFortuneRoute(request:response:))
+        .post(myFortunePath, handleFortuneRoute(request:response:))
     
 }
 
