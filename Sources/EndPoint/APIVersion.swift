@@ -1,5 +1,5 @@
 //
-//  VersionPath.swift
+//  APIVersion.swift
 //  
 //
 //  Created by 史 翔新 on 2022/12/15.
@@ -8,19 +8,17 @@
 import Foundation
 import Compute
 
-enum VersionInPath {
+enum APIVersion {
     
     enum InitializationError: Error {
         case invalidVersionString(String)
     }
     
     case v1
-    
-    static let versionPathID = "version"
-    
-    init?(request: IncomingRequest) throws {
         
-        guard let versionString = request.pathParams[Self.versionPathID] else {
+    init?(versionString: String?) throws {
+        
+        guard let versionString else {
             return nil
         }
         
