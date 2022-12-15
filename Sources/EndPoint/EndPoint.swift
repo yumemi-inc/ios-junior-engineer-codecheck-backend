@@ -25,8 +25,7 @@ extension EndPoint {
         
         try await response
             .status(.ok)
-            // TODO: Markdown Rendering
-            .send(indexContent)
+            .send(html: Index().html)
         
     }
     
