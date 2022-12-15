@@ -34,15 +34,19 @@ private let content = #"""
     ### API 仕様
 
     - Base URL:
+      
       "https://ios-junior-engineer-codecheck-backend-el-hoshino.app.swift.cloud"
 
     - End Point:
+      
       "/my_fortune"
 
     - HTTP Method:
+      
       "POST"
 
     - HTTP Request Headers:
+      
       | Key | Value |
       |:--|:--|
       | "API-Version" | "v1" |
@@ -50,6 +54,7 @@ private let content = #"""
       ※"v1"を他の文字列で置き換えると `EndPoint.APIVersion.InitializationError` エラーになります；またこのヘッダーを省略すること自体は可能ですが、将来API仕様が変わる可能性があるため、入れることをお勧めします。
 
     - HTTP Body:
+      
       | Key | Type | Description | Sample Value |
       |:--|:--|:--|:--|
       | "name" | String | 占う人の名前 | "錦木千束" |
@@ -58,6 +63,7 @@ private let content = #"""
       | "today" | YearMonthDay（後述） | 今日の日付 | - |
 
       YearMonthDay 型の仕様：
+      
       | Key | Type | Description | Sample Value |
       |:--|:--|:--|:--|
       | "year" | Int | 年 | 2004 |
@@ -65,6 +71,7 @@ private let content = #"""
       | "day" | Int | 日 | 23 |
 
       JSON サンプル
+      
       ```json
       {
         "name": "錦木千束",
@@ -83,6 +90,7 @@ private let content = #"""
       ```
 
     - Response Body
+      
       | Key | Type | Description | Sample Value |
       |:--|:--|:--|:--|
       | "name" | String | 都道府県の名前 | "福井県" |
@@ -90,6 +98,7 @@ private let content = #"""
       | "brief" | String | 都道府県の概要 | "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』" |
 
       JSON サンプル
+      
       ```json
       {
         "name": "福井県",
