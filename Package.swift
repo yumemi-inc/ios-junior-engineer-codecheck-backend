@@ -14,6 +14,10 @@ let package = Package(
             from: "1.0.0"
         ),
         .package(
+            url: "https://github.com/johnsundell/ink.git",
+            from: "0.5.1"
+        ),
+        .package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.2"
         ),
@@ -25,6 +29,7 @@ let package = Package(
             name: "EndPoint",
             dependencies: [
                 .product(name: "Compute", package: "Compute"),
+                .product(name: "Ink", package: "ink"),
                 .product(name: "FakeFortuneTelling", package: "fake-fortune-telling"),
             ]),
         .testTarget(
