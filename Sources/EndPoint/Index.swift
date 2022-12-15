@@ -35,7 +35,7 @@ private let content = #"""
 
     - Base URL:
       
-      "https://ios-junior-engineer-codecheck-backend-el-hoshino.app.swift.cloud"
+      "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"
 
     - End Point:
       
