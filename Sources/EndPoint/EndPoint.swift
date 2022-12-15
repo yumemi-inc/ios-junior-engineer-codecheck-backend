@@ -9,18 +9,34 @@ struct EndPoint {
         try await onIncomingRequest(router.run)
     }
     
+    private static let apiVersionHeaderKey = "API-Version"
+    private static let myFortunePath = "my_fortune"
+    
     static let router = Router()
         .get("") { req, res in
             try await res
                 .status(.ok)
                 .send("Hello, World!")
         }
-        .get("/my_fortune") { req, res in
-            let result = try await askFortune(from: req)
-            try await res
+        .post(myFortunePath, handleFortuneRoute(request:response:))
+    
+}
+
+extension EndPoint {
+    
+    static func handleFortuneRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
+        
+        let version = try APIVersion(versionString: request.headers[apiVersionHeaderKey]) ?? .v1
+        
+        switch version {
+        case .v1:
+            let result = try await askFortune(from: request)
+            try await response
                 .status(.ok)
                 .send(result)
         }
+        
+    }
     
 }
 
