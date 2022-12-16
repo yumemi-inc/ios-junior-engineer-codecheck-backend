@@ -47,7 +47,7 @@ private let content = #"""
 
     - HTTP Request Headers:
       
-      <table>
+      <table border="1" style="border-collapse:collapse;">
         <tr>
           <th>Key</th>
           <th>Value</th>
