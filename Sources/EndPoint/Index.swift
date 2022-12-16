@@ -62,20 +62,67 @@ private let content = #"""
 
     - HTTP Body:
       
-      | Key | Type | Description | Sample Value |
-      |:--|:--|:--|:--|
-      | "name" | String | 占う人の名前 | "錦木千束" |
-      | "birthday" | YearMonthDay（後述） | 占う人の生年月日 | - |
-      | "blood_type" | String | 占う人の血液型 | "ab" |
-      | "today" | YearMonthDay（後述） | 今日の日付 | - |
+      <table border="1" style="border-collapse:collapse;">
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Sample Value</th>
+        </tr>
+        <tr>
+          <td>"name"</td>
+          <td>String</td>
+          <td>占う人の名前</td>
+          <td>"錦木千束"</td>
+        </tr>
+        <tr>
+          <td>"birthday"</td>
+          <td>YearMonthDay（後述）</td>
+          <td>占う人の生年月日</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>"blood_type"</td>
+          <td>String</td>
+          <td>占う人の血液型</td>
+          <td>"ab"</td>
+        </tr>
+        <tr>
+          <td>"today"</td>
+          <td>YearMonthDay（後述）"</td>
+          <td>今日の日付</td>
+          <td>-</td>
+        </tr>
+      </table>
 
       YearMonthDay 型の仕様：
       
-      | Key | Type | Description | Sample Value |
-      |:--|:--|:--|:--|
-      | "year" | Int | 年 | 2004 |
-      | "month" | Int | 月 | 9 |
-      | "day" | Int | 日 | 23 |
+      <table border="1" style="border-collapse:collapse;">
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Sample Value</th>
+        </tr>
+        <tr>
+          <td>"year"</td>
+          <td>Int</td>
+          <td>年</td>
+          <td>2004</td>
+        </tr>
+        <tr>
+          <td>"month"</td>
+          <td>Int</td>
+          <td>月</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>"day"</td>
+          <td>Int</td>
+          <td>日</td>
+          <td>23</td>
+        </tr>
+      </table>
 
       JSON サンプル
       
@@ -98,11 +145,32 @@ private let content = #"""
 
     - Response Body
       
-      | Key | Type | Description | Sample Value |
-      |:--|:--|:--|:--|
-      | "name" | String | 都道府県の名前 | "福井県" |
-      | "capital" | String | 県庁所在地 | "福井市" |
-      | "brief" | String | 都道府県の概要 | "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』" |
+      <table border="1" style="border-collapse:collapse;">
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Sample Value</th>
+        </tr>
+        <tr>
+          <td>"name"</td>
+          <td>String</td>
+          <td>都道府県の名前</td>
+          <td>"福井県"</td>
+        </tr>
+        <tr>
+          <td>"capital"</td>
+          <td>String</td>
+          <td>県庁所在地</td>
+          <td>"福井市"</td>
+        </tr>
+        <tr>
+          <td>"brief"</td>
+          <td>String</td>
+          <td>都道府県の概要</td>
+          <td>"福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</td>
+        </tr>
+      </table>
 
       JSON サンプル
       
