@@ -126,22 +126,24 @@ private let content = #"""
 
       JSON サンプル
       
-      ```json
-      {
-        "name": "錦木千束",
-        "birthday": {
-          "year": 2004,
-          "month": 9,
-          "day": 23
-        },
-        "blood_type": "ab",
-        "today": {
-          "year": 2022,
-          "month": 7,
-          "day": 2
-        }
-      }
-      ```
+      <pre>
+        <code>
+          {
+            "name": "錦木千束",
+            "birthday": {
+              "year": 2004,
+              "month": 9,
+              "day": 23
+            },
+            "blood_type": "ab",
+            "today": {
+              "year": 2022,
+              "month": 7,
+              "day": 2
+            }
+          }
+        </code>
+      </pre>
 
     - Response Body
       
