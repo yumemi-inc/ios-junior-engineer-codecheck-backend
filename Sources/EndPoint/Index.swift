@@ -47,9 +47,16 @@ private let content = #"""
 
     - HTTP Request Headers:
       
-      | Key | Value |
-      |:--|:--|
-      | "API-Version" | "v1" |
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>"API-Version"</td>
+          <td>"v1"</td>
+        </tr>
+      </table>
 
       ※"v1"を他の文字列で置き換えると `EndPoint.APIVersion.InitializationError` エラーになります；またこのヘッダーを省略すること自体は可能ですが、将来API仕様が変わる可能性があるため、入れることをお勧めします。
 
