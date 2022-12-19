@@ -23,6 +23,7 @@ private let content = #"""
     <!DOCTYPE html>
     <html lang="ja">
     <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題</title>
     </head>
     <body>
