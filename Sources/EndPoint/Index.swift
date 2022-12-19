@@ -20,6 +20,12 @@ struct Index {
 
 // TODO: Find a new MarkDown parser
 private let content = #"""
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+    <title>株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題</title>
+    </head>
+    <body>
     <h1>株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題</h1>
 
     <h2>概要</h2>
@@ -223,4 +229,6 @@ private let content = #"""
     <p>提出された課題の評価ポイントに関しては、<a href="https://qiita.com/lovee/items/d76c68341ec3e7beb611">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。
     </p>
     <p>ライブラリの利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</p>
+    </body>
+    </head>
     """#
