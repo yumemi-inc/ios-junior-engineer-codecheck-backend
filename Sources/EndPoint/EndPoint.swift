@@ -10,19 +10,24 @@ struct EndPoint {
     }
     
     private static let apiVersionHeaderKey = "API-Version"
+    private static let indexPath = ""
     private static let myFortunePath = "my_fortune"
     
     static let router = Router()
-        .get("") { req, res in
-            try await res
-                .status(.ok)
-                .send("Hello, World!")
-        }
+        .get(indexPath, handleIndexRoute(request:response:))
         .post(myFortunePath, handleFortuneRoute(request:response:))
     
 }
 
 extension EndPoint {
+    
+    static func handleIndexRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
+        
+        try await response
+            .status(.ok)
+            .send(html: Index().html)
+        
+    }
     
     static func handleFortuneRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
         
