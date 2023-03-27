@@ -103,6 +103,7 @@ private struct ReturningInfo: Encodable {
     let brief: String
     let citizenDay: MonthDay?
     let hasCoastLine: Bool
+    let logoURL: URL
     
     init(prefecture: Prefecture) {
         self.name = prefecture.name
@@ -110,6 +111,7 @@ private struct ReturningInfo: Encodable {
         self.brief = prefecture.brief
         self.citizenDay = .init(from: prefecture.citizenDay)
         self.hasCoastLine = prefecture.hasCoastLine
+        self.logoURL = prefecture.logoURL
     }
     
 }
