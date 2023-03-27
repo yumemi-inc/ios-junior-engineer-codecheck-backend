@@ -25,6 +25,74 @@ private let content = #"""
     <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        h2, h3 {
+            font-size: 24px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #999;
+        }
+
+        th, td {
+            padding: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f1f1f1;
+            padding: 15px;
+            overflow-x: scroll;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: monospace;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+    </style>
     </head>
     <body>
     <h1>株式会社ゆめみ iOS 未経験者エンジニア向けコードチェック課題</h1>
