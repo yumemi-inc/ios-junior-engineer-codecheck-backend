@@ -24,7 +24,7 @@ extension Prefecture {
         
         return .init(string: "https://japan-map.com/wp-content/uploads/\(kunreiSpell).png") ?? {
             assertionFailure("Invalid prefecture spell: \(kunreiSpell)")
-            return NSURL() as URL
+            return NSURL(fileURLWithPath: "") as URL
         }()
         
     }
