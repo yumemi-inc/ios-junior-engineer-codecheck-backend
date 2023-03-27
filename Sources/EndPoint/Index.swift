@@ -165,10 +165,50 @@ private let content = #"""
                 <td>"福井市"</td>
             </tr>
             <tr>
+                <td>"citizen_day"</td>
+                <td>MonthDay?（後述）</td>
+                <td>県民の日（もしあれば）</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>"has_coast_line"</td>
+                <td>Bool</td>
+                <td>海岸線があるかどうか</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>"logo_url"</td>
+                <td>String</td>
+                <td>ロゴのURL</td>
+                <td>"https://japan-map.com/wp-content/uploads/fukui.png"</td>
+            </tr>
+            <tr>
                 <td>"brief"</td>
                 <td>String</td>
                 <td>都道府県の概要</td>
                 <td>"福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</td>
+            </tr>
+        </table>
+
+        <p>MonthDay 型の仕様：</p>
+        <table border="1" style="border-collapse:collapse;">
+            <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Sample Value</th>
+            </tr>
+            <tr>
+                <td>"month"</td>
+                <td>Int</td>
+                <td>月</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>"day"</td>
+                <td>Int</td>
+                <td>日</td>
+                <td>23</td>
             </tr>
         </table>
 
@@ -179,6 +219,12 @@ private let content = #"""
                     "name": "福井県",
                     "brief": "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
                     "capital": "福井市"
+                    "citizen_day": {
+                        "month": 2,
+                        "day": 7
+                    },
+                    "has_coast_line": true,
+                    "logo_url": "https://japan-map.com/wp-content/uploads/fukui.png"
                 }
             </code>
         </pre>
