@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/yumemi-inc/fake-fortune-telling",
       "state" : {
-        "revision" : "a8f92eda3daa9a832e96a84f3487f1cbe7463c8b",
-        "version" : "0.2.2"
+        "revision" : "bf15330a73b0d3d9f3578aee91fb281c86a26957",
+        "version" : "0.2.3"
       }
     }
   ],

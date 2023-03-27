@@ -19,7 +19,7 @@ let package = Package(
 //        ),
         .package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
-            from: "0.2.2"
+            from: "0.2.3"
         ),
     ],
     targets: [
