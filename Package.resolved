@@ -5,7 +5,16 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-cloud/Compute",
       "state" : {
-        "revision" : "6ad4ec6af8601e565c9e339d3565c987ae8fed78",
+        "revision" : "1b8323caa0e44c87e426b3f414742ea3ab5ce343",
+        "version" : "1.11.0"
+      }
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
+      "state" : {
+        "revision" : "95c18f1c1bc44d5547728621ed680850368f7a45",
         "version" : "1.7.0"
       }
     },
