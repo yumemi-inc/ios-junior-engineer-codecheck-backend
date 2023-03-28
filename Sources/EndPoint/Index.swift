@@ -393,7 +393,9 @@ private let content = #"""
         <p>提出された課題の評価ポイントに関しては、<a href="https://qiita.com/lovee/items/d76c68341ec3e7beb611">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。
         </p>
         <p>ライブラリの利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</p>
+        <h2 id="reference">謝辞</h2>
         <p>各都道府県のロゴ画像は、<a href="https://japan-map.com">日本地図無料イラスト素材集</a>様の都道府県シルエット画像を利用しています。</p>
+        <p>本ページは、<a href="https://chat.openai.com">ChatGPT</a>の協力で作成しました。</p>
     </section>
     </div>
     </body>
