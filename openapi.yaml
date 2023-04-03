@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: ios-junior-engineer-codecheck-backend
+  version: 0.0.0
+servers:
+  - url: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
+paths:
+  /my_fortune:
+    post:
+      summary: Get fortune for given person
+      description: This endpoint returns the fortune of a person based on their name, birthday, blood type, and current date.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MyFortuneRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MyFortuneResponse"
+          headers:
+            API-Version:
+              schema:
+                type: string
+              description: API Version
+              required: true
+    x-code-samples:
+      - lang: shell
+        source: |
+          curl -X POST "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud/my_fortune" \
+            -H "API-Version: v1" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "錦木千束", "birthday": {"year": 2004, "month": 9, "day": 23}, "blood_type": "ab", "today": {"year": 2022, "month": 7, "day": 2}}'
+components:
+  schemas:
+    MyFortuneRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        birthday:
+          $ref: "#/components/schemas/Date"
+        blood_type:
+          type: string
+          enum: ["A", "B", "AB", "O"]
+        today:
+          $ref: "#/components/schemas/Date"
+      required:
+        - name
+        - birthday
+        - blood_type
+        - today
+    MyFortuneResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        brief:
+          type: string
+        capital:
+          type: string
+      required:
+        - name
+        - brief
+        - capital
+    Date:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        month:
+          type: integer
+          format: int32
+        day:
+          type: integer
+          format: int32
+      required:
+        - year
+        - month
+        - day
