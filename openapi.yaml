@@ -8,7 +8,7 @@ paths:
   /my_fortune:
     post:
       summary: Get fortune for given person
-      description: This endpoint returns the fortune of a person based on their name, birthday, blood type, and current date.
+      description: This endpoint returns the fortune of a person based on their name, birthday, blood type, and date.
       requestBody:
         required: true
         content:
@@ -46,7 +46,7 @@ components:
           $ref: "#/components/schemas/Date"
         blood_type:
           type: string
-          enum: ["A", "B", "AB", "O"]
+          enum: ["a", "b", "ab", "o"]
         today:
           $ref: "#/components/schemas/Date"
       required:
