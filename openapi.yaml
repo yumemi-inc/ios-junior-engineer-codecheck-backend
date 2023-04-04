@@ -63,10 +63,20 @@ components:
           type: string
         capital:
           type: string
+        citizen_day:
+          $ref: "#/components/schemas/MonthDay"
+        has_coast_line:
+          type: boolean
+        logo_url:
+          type: string
+          format: url
       required:
         - name
         - brief
         - capital
+        - has_coast_line
+        - logo_url
+        - brief
     Date:
       type: object
       properties:
@@ -81,5 +91,17 @@ components:
           format: int32
       required:
         - year
+        - month
+        - day
+    MonthDay:
+      type: object
+      properties:
+        month:
+          type: integer
+          format: int32
+        day:
+          type: integer
+          format: int32
+      required:
         - month
         - day
