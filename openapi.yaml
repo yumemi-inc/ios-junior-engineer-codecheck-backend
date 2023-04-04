@@ -8,7 +8,7 @@ paths:
   /my_fortune:
     post:
       summary: Get fortune for given person
-      description: This endpoint returns the fortune of a person based on their name, birthday, blood type, and date.
+      description: This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
       requestBody:
         required: true
         content:
