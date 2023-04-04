@@ -61,7 +61,7 @@ extension EndPoint {
     
     static func askFortune(from request: IncomingRequest) async throws -> Data {
         
-        let info = try await request.body.decode(ProvidedInfo.self, decoder: jsonDecoder)
+        let info = try await request.body.decode(decoder: jsonDecoder) as ProvidedInfo
         let prefecture = FortuneTeller.prefectureForYou(
             name: info.name,
             birthday: info.birthday,
@@ -88,14 +88,30 @@ private struct ProvidedInfo: Decodable {
 
 private struct ReturningInfo: Encodable {
     
+    struct MonthDay: Encodable {
+        let month: Int
+        let day: Int
+        init?(from monthDay: FakeFortuneTelling.MonthDay?) {
+            guard let monthDay = monthDay else { return nil }
+            self.month = monthDay.month
+            self.day = monthDay.day
+        }
+    }
+    
     let name: String
     let capital: String
     let brief: String
+    let citizenDay: MonthDay?
+    let hasCoastLine: Bool
+    let logoURL: URL
     
     init(prefecture: Prefecture) {
         self.name = prefecture.name
         self.capital = prefecture.capital
         self.brief = prefecture.brief
+        self.citizenDay = .init(from: prefecture.citizenDay)
+        self.hasCoastLine = prefecture.hasCoastLine
+        self.logoURL = prefecture.logoURL
     }
     
 }
