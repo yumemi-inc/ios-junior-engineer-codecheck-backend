@@ -7,6 +7,9 @@ servers:
 paths:
   /my_fortune:
     post:
+      operationId: post-my-fortune
+      tags:
+        - Fortune
       summary: Get fortune for given person
       description: This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
       requestBody:
@@ -42,11 +45,13 @@ components:
       properties:
         name:
           type: string
+          example: 錦木千束
         birthday:
           $ref: "#/components/schemas/Date"
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
+          example: "a"
         today:
           $ref: "#/components/schemas/Date"
       required:
@@ -59,17 +64,22 @@ components:
       properties:
         name:
           type: string
+          example: 福井県
         brief:
           type: string
+          example: "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"
         capital:
           type: string
+          example: 福井市
         citizen_day:
           $ref: "#/components/schemas/MonthDay"
         has_coast_line:
           type: boolean
+          example: true
         logo_url:
           type: string
           format: url
+          example: "https://japan-map.com/wp-content/uploads/fukui.png"
       required:
         - name
         - brief
@@ -83,12 +93,15 @@ components:
         year:
           type: integer
           format: int32
+          example: 2004
         month:
           type: integer
           format: int32
+          example: 9
         day:
           type: integer
           format: int32
+          example: 23
       required:
         - year
         - month
@@ -99,9 +112,11 @@ components:
         month:
           type: integer
           format: int32
+          example: 2
         day:
           type: integer
           format: int32
+          example: 7
       required:
         - month
         - day
