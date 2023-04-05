@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+  title: ios-junior-engineer-codecheck-backend
+  version: 0.0.0
+servers:
+  - url: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
+paths:
+  /my_fortune:
+    post:
+      operationId: post-my-fortune
+      tags:
+        - Fortune
+      summary: Get fortune for given person
+      description: This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MyFortuneRequest"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MyFortuneResponse"
+          headers:
+            API-Version:
+              schema:
+                type: string
+              description: API Version
+              required: true
+    x-code-samples:
+      - lang: shell
+        source: |
+          curl -X POST "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud/my_fortune" \
+            -H "API-Version: v1" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "錦木千束", "birthday": {"year": 2004, "month": 9, "day": 23}, "blood_type": "ab", "today": {"year": 2022, "month": 7, "day": 2}}'
+components:
+  schemas:
+    MyFortuneRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 錦木千束
+        birthday:
+          $ref: "#/components/schemas/Date"
+        blood_type:
+          type: string
+          enum: ["a", "b", "ab", "o"]
+          example: "a"
+        today:
+          $ref: "#/components/schemas/Date"
+      required:
+        - name
+        - birthday
+        - blood_type
+        - today
+    MyFortuneResponse:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 福井県
+        brief:
+          type: string
+          example: "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"
+        capital:
+          type: string
+          example: 福井市
+        citizen_day:
+          $ref: "#/components/schemas/MonthDay"
+        has_coast_line:
+          type: boolean
+          example: true
+        logo_url:
+          type: string
+          format: url
+          example: "https://japan-map.com/wp-content/uploads/fukui.png"
+      required:
+        - name
+        - brief
+        - capital
+        - has_coast_line
+        - logo_url
+        - brief
+    Date:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+          example: 2004
+        month:
+          type: integer
+          format: int32
+          example: 9
+        day:
+          type: integer
+          format: int32
+          example: 23
+      required:
+        - year
+        - month
+        - day
+    MonthDay:
+      type: object
+      properties:
+        month:
+          type: integer
+          format: int32
+          example: 2
+        day:
+          type: integer
+          format: int32
+          example: 7
+      required:
+        - month
+        - day
