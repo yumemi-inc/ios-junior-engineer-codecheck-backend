@@ -3,6 +3,8 @@ name: redoc
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'openapi.yaml'
   workflow_dispatch:
 
 jobs:
@@ -27,6 +29,8 @@ jobs:
           mv redoc-static.html pages/openapi.html
 
       - uses: actions/upload-artifact@v3
+        with:
+          path: pages
       - uses: actions/upload-pages-artifact@v1
         with:
           path: pages
