@@ -350,9 +350,9 @@ private let content = #"""
 
         <h3 id="environment">環境</h3>
         <ul>
-            <li>IDE：基本最新の安定版（本概要更新時点では Xcode 14.2）</li>
-            <li>Swift：基本最新の安定版（本概要更新時点では Swift 5.7）</li>
-            <li>開発ターゲット：基本最新の安定版（本概要更新時点では iOS 16.2）</li>
+            <li>IDE：基本最新の安定版（本概要最終更新時点では Xcode 14.3）</li>
+            <li>Swift：基本最新の安定版（本概要最終更新時点では Swift 5.8）</li>
+            <li>開発ターゲット：基本最新の安定版（本概要最終更新時点では iOS 16.4）</li>
         </ul>
 
         <h3 id="operation">動作</h3>
