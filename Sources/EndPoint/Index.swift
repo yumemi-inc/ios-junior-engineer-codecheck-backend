@@ -161,6 +161,7 @@ private let content = #"""
         <p>「あなたと相性のいい都道府県を占ってあげる！」をテーマに iPhone アプリを作ってください。API 仕様下記の通りです。</p>
 
         <h3 id="api-spec">API 仕様</h3>
+        <p>（詳細は <a href="https://yumemi-inc.github.io/ios-junior-engineer-codecheck-backend/openapi.html">OpenAPI</a> のページもご参考にしてください）</p>
         <ul>
             <li>Base URL:</li>
             <p>"https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"</p>
