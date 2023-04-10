@@ -87,7 +87,6 @@ components:
         - capital
         - has_coast_line
         - logo_url
-        - brief
     Date:
       type: object
       properties:
