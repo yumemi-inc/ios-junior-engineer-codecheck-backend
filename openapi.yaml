@@ -15,6 +15,13 @@ paths:
       requestBody:
         required: true
         content:
+          headers:
+            API-Version:
+              schema:
+                type: string
+                example: "v1"
+              description: API Version
+              required: false
           application/json:
             schema:
               $ref: "#/components/schemas/MyFortuneRequest"
@@ -25,12 +32,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MyFortuneResponse"
-          headers:
-            API-Version:
-              schema:
-                type: string
-              description: API Version
-              required: true
     x-code-samples:
       - lang: shell
         source: |
