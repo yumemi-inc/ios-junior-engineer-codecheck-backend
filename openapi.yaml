@@ -48,13 +48,13 @@ components:
           type: string
           example: 錦木千束
         birthday:
-          $ref: "#/components/schemas/Date"
+          $ref: "#/components/schemas/YearMonthDay"
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
           example: "a"
         today:
-          $ref: "#/components/schemas/Date"
+          $ref: "#/components/schemas/YearMonthDay"
       required:
         - name
         - birthday
@@ -87,7 +87,7 @@ components:
         - capital
         - has_coast_line
         - logo_url
-    Date:
+    YearMonthDay:
       type: object
       properties:
         year:
