@@ -10,7 +10,7 @@ import FakeFortuneTelling
 
 extension Prefecture {
     
-    private var kunreiSpell: String {
+    private var spell: String {
         switch self {
         case .gunma:
             return "gumma"
@@ -22,8 +22,8 @@ extension Prefecture {
     
     var logoURL: URL {
         
-        return .init(string: "https://japan-map.com/wp-content/uploads/\(kunreiSpell).png") ?? {
-            assertionFailure("Invalid prefecture spell: \(kunreiSpell)")
+        return .init(string: "https://japan-map.com/wp-content/uploads/\(spell).png") ?? {
+            assertionFailure("Invalid prefecture spell: \(spell)")
             return NSURL(fileURLWithPath: "") as URL
         }()
         
