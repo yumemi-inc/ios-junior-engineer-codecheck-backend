@@ -161,6 +161,7 @@ private let content = #"""
         <p>「あなたと相性のいい都道府県を占ってあげる！」をテーマに iPhone アプリを作ってください。API 仕様下記の通りです。</p>
 
         <h3 id="api-spec">API 仕様</h3>
+        <p>（詳細は <a href="https://yumemi-inc.github.io/ios-junior-engineer-codecheck-backend/openapi.html">OpenAPI</a> のページもご参考にしてください）</p>
         <ul>
             <li>Base URL:</li>
             <p>"https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"</p>
@@ -349,9 +350,9 @@ private let content = #"""
 
         <h3 id="environment">環境</h3>
         <ul>
-            <li>IDE：基本最新の安定版（本概要更新時点では Xcode 14.2）</li>
-            <li>Swift：基本最新の安定版（本概要更新時点では Swift 5.7）</li>
-            <li>開発ターゲット：基本最新の安定版（本概要更新時点では iOS 16.2）</li>
+            <li>IDE：基本最新の安定版（本概要最終更新時点では Xcode 14.3）</li>
+            <li>Swift：基本最新の安定版（本概要最終更新時点では Swift 5.8）</li>
+            <li>開発ターゲット：基本最新の安定版（本概要最終更新時点では iOS 16.4）</li>
         </ul>
 
         <h3 id="operation">動作</h3>
@@ -387,12 +388,31 @@ private let content = #"""
             <ol>
                 <li>両方の混在も OK です。</li>
             </ol>
+            <ol>
+                <li>ChatGPTなどAIサービスの利用は禁止しておりません。</li>
+                <ol>
+                    <li>利用にあたって工夫したプロンプトやソースコメント等をご提出頂くと加点評価する場合がございます。 (減点評価はありません)</li>
+                </ol>
+            </ol>
         </ol>
 
         <h2 id="reference">参考記事</h2>
-        <p>提出された課題の評価ポイントに関しては、<a href="https://qiita.com/lovee/items/d76c68341ec3e7beb611">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。
-        </p>
-        <p>ライブラリの利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</p>
+        <ul>
+            <li>提出された課題の評価ポイントに関しては、<a href="https://qiita.com/lovee/items/d76c68341ec3e7beb611">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。</li>
+            <li>CodoaPods の利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。/li>
+        </ul>
+
+        <h2 id="reference">その他注意</h2>
+        <ul>
+            <li>本課題はあくまで未経験者向けの特別課題です。中途採用のご応募では本課題を選択できません。</li>
+            <li>本課題を提出する場合、通常課題をこなす必要がありません。</li>
+            <ul>
+                <li>ただし課題の性質上、レビュー期間は通常課題より長めに設けさせていただきます（目安としておおよそ 1 週間です）。</li>
+                <li>また通常課題と違い、明確なチケットに基づいた選考基準は現在ありません。あなたが思う「いいアプリ」を作ってください。</li>
+            </ul>
+            <li>本課題は、iOS アプリ開発のスキルを選考するためのものです。そのため、本課題の内容をもとにしたアプリを App Store に公開することは禁止しております。</li>
+        </ul>
+
         <h2 id="reference">謝辞</h2>
         <p>各都道府県のロゴ画像は、<a href="https://japan-map.com">日本地図無料イラスト素材集</a>様の都道府県シルエット画像を利用しています。</p>
         <p>本ページは、<a href="https://chat.openai.com">ChatGPT</a>の協力で作成しました。</p>

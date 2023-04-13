@@ -15,6 +15,13 @@ paths:
       requestBody:
         required: true
         content:
+          headers:
+            API-Version:
+              schema:
+                type: string
+                example: "v1"
+              description: API Version
+              required: false
           application/json:
             schema:
               $ref: "#/components/schemas/MyFortuneRequest"
@@ -25,12 +32,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MyFortuneResponse"
-          headers:
-            API-Version:
-              schema:
-                type: string
-              description: API Version
-              required: true
     x-code-samples:
       - lang: shell
         source: |
@@ -47,13 +48,13 @@ components:
           type: string
           example: 錦木千束
         birthday:
-          $ref: "#/components/schemas/Date"
+          $ref: "#/components/schemas/YearMonthDay"
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
           example: "a"
         today:
-          $ref: "#/components/schemas/Date"
+          $ref: "#/components/schemas/YearMonthDay"
       required:
         - name
         - birthday
@@ -86,8 +87,7 @@ components:
         - capital
         - has_coast_line
         - logo_url
-        - brief
-    Date:
+    YearMonthDay:
       type: object
       properties:
         year:
