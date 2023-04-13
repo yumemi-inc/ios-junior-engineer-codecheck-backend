@@ -17,9 +17,10 @@ paths:
           name: API-Version
           schema:
             type: string
+            enum: ["v1"]
           required: false
           example: "v1"
-          description: "API Version you'd like to use in your sending request."
+          description: "API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version."
       requestBody:
         required: true
         content:
