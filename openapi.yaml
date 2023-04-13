@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: ios-junior-engineer-codecheck-backend
-  version: 0.0.0
+  version: "v1"
 servers:
   - url: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
 paths:
