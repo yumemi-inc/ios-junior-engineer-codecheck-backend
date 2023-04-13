@@ -12,16 +12,17 @@ paths:
         - Fortune
       summary: Get fortune for given person
       description: This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+      parameters:
+        - in: header
+          name: API-Version
+          schema:
+            type: string
+          required: false
+          example: "v1"
+          description: "API Version you'd like to use in your sending request."
       requestBody:
         required: true
         content:
-          headers:
-            API-Version:
-              schema:
-                type: string
-                example: "v1"
-              description: API Version
-              required: false
           application/json:
             schema:
               $ref: "#/components/schemas/MyFortuneRequest"
