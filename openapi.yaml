@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: ios-junior-engineer-codecheck-backend
-  version: 0.0.0
+  version: 1.0.0
 servers:
   - url: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
 paths:
@@ -12,16 +12,18 @@ paths:
         - Fortune
       summary: Get fortune for given person
       description: This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+      parameters:
+        - in: header
+          name: API-Version
+          schema:
+            type: string
+            enum: ["v1"]
+          required: false
+          example: "v1"
+          description: "API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version."
       requestBody:
         required: true
         content:
-          headers:
-            API-Version:
-              schema:
-                type: string
-                example: "v1"
-              description: API Version
-              required: false
           application/json:
             schema:
               $ref: "#/components/schemas/MyFortuneRequest"
@@ -46,15 +48,22 @@ components:
       properties:
         name:
           type: string
+          maxLength: 127
+          description: "Target's name."
           example: 錦木千束
         birthday:
-          $ref: "#/components/schemas/YearMonthDay"
+          allOf:
+            - $ref: "#/components/schemas/YearMonthDay"
+            - description: "Target's birthday."
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
+          description: "Target's blood type."
           example: "a"
         today:
-          $ref: "#/components/schemas/YearMonthDay"
+          allOf:
+            - $ref: "#/components/schemas/YearMonthDay"
+            - description: "Today's date."
       required:
         - name
         - birthday
@@ -65,21 +74,28 @@ components:
       properties:
         name:
           type: string
+          description: "Result prefecture's name."
           example: 福井県
         brief:
           type: string
+          description: "Result prefecture's brief instruction."
           example: "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"
         capital:
           type: string
+          description: "Result prefecture's capital city."
           example: 福井市
         citizen_day:
-          $ref: "#/components/schemas/MonthDay"
+          allOf:
+            - $ref: "#/components/schemas/MonthDay"
+            - description: "Result prefecture's citizen date (if it has one)."
         has_coast_line:
           type: boolean
+          description: "Whether result prefecture has a coast line or not."
           example: true
         logo_url:
           type: string
           format: url
+          description: "Result prefecture's logo's URL."
           example: "https://japan-map.com/wp-content/uploads/fukui.png"
       required:
         - name
@@ -93,14 +109,17 @@ components:
         year:
           type: integer
           format: int32
+          description: "Year number"
           example: 2004
         month:
           type: integer
           format: int32
+          description: "Month number"
           example: 9
         day:
           type: integer
           format: int32
+          description: "Day number"
           example: 23
       required:
         - year
@@ -112,10 +131,12 @@ components:
         month:
           type: integer
           format: int32
+          description: "Month number"
           example: 2
         day:
           type: integer
           format: int32
+          description: "Day number"
           example: 7
       required:
         - month
