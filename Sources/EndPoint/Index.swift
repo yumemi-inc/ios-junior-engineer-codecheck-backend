@@ -198,7 +198,7 @@ private let content = #"""
                     <td>"name"</td>
                     <td>String</td>
                     <td>占う人の名前</td>
-                    <td>"錦木千束"</td>
+                    <td>"ゆめみん"</td>
                 </tr>
                 <tr>
                     <td>"birthday"</td>
@@ -232,36 +232,36 @@ private let content = #"""
                     <td>"year"</td>
                     <td>Int</td>
                     <td>年</td>
-                    <td>2004</td>
+                    <td>2000</td>
                 </tr>
                 <tr>
                     <td>"month"</td>
                     <td>Int</td>
                     <td>月</td>
-                    <td>9</td>
+                    <td>1</td>
                 </tr>
                 <tr>
                     <td>"day"</td>
                     <td>Int</td>
                     <td>日</td>
-                    <td>23</td>
+                    <td>27</td>
                 </tr>
             </table>
 
             <p>JSON サンプル</p>
             <pre><code>
             {
-                <span class="json-key">"name"</span>: <span class="json-string">"錦木千束"</span>,
+                <span class="json-key">"name"</span>: <span class="json-string">"ゆめみん"</span>,
                 <span class="json-key">"birthday"</span>: {
-                    <span class="json-key">"year"</span>: <span class="json-number">2004</span>,
-                    <span class="json-key">"month"</span>: <span class="json-number">9</span>,
-                    <span class="json-key">"day"</span>: <span class="json-number">23</span>
+                    <span class="json-key">"year"</span>: <span class="json-number">2000</span>,
+                    <span class="json-key">"month"</span>: <span class="json-number">1</span>,
+                    <span class="json-key">"day"</span>: <span class="json-number">27</span>
                 },
                 <span class="json-key">"blood_type"</span>: <span class="json-string">"ab"</span>,
                 <span class="json-key">"today"</span>: {
-                    <span class="json-key">"year"</span>: <span class="json-number">2022</span>,
-                    <span class="json-key">"month"</span>: <span class="json-number">7</span>,
-                    <span class="json-key">"day"</span>: <span class="json-number">2</span>
+                    <span class="json-key">"year"</span>: <span class="json-number">2023</span>,
+                    <span class="json-key">"month"</span>: <span class="json-number">5</span>,
+                    <span class="json-key">"day"</span>: <span class="json-number">5</span>
                 }
             }</code></pre>
             
@@ -277,13 +277,13 @@ private let content = #"""
                     <td>"name"</td>
                     <td>String</td>
                     <td>都道府県の名前</td>
-                    <td>"福井県"</td>
+                    <td>"富山県"</td>
                 </tr>
                 <tr>
                     <td>"capital"</td>
                     <td>String</td>
                     <td>県庁所在地</td>
-                    <td>"福井市"</td>
+                    <td>"富山市"</td>
                 </tr>
                 <tr>
                     <td>"citizen_day"</td>
@@ -301,13 +301,13 @@ private let content = #"""
                     <td>"logo_url"</td>
                     <td>String</td>
                     <td>ロゴのURL</td>
-                    <td>"https://japan-map.com/wp-content/uploads/fukui.png"</td>
+                    <td>"https://japan-map.com/wp-content/uploads/toyama.png"</td>
                 </tr>
                 <tr>
                     <td>"brief"</td>
                     <td>String</td>
                     <td>都道府県の概要</td>
-                    <td>"福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</td>
+                    <td>"富山県（とやまけん）は、日本の中部地方に位置する県。県庁所在地は富山市。\n中部地方の日本海側、新潟県を含めた場合の北陸地方のほぼ中央にある。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</td>
                 </tr>
             </table>
 
@@ -323,28 +323,28 @@ private let content = #"""
                     <td>"month"</td>
                     <td>Int</td>
                     <td>月</td>
-                    <td>9</td>
+                    <td>5</td>
                 </tr>
                 <tr>
                     <td>"day"</td>
                     <td>Int</td>
                     <td>日</td>
-                    <td>23</td>
+                    <td>9</td>
                 </tr>
             </table>
 
             <p>JSON サンプル</p>
             <pre><code>
             {
-                <span class="json-key">"name"</span>: <span class="json-string">"福井県"</span>,
-                <span class="json-key">"brief"</span>: <span class="json-string">"福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</span>,
-                <span class="json-key">"capital"</span>: <span class="json-string">"福井市"</span>,
-                <span class="json-key">"citizen_day"</span>: {
-                    <span class="json-key">"month"</span>: <span class="json-number">2</span>,
-                    <span class="json-key">"day"</span>: <span class="json-number">7</span>
-                },
+                <span class="json-key">"name"</span>: <span class="json-string">"富山県"</span>,
                 <span class="json-key">"has_coast_line"</span>: <span class="json-boolean">true</span>,
-                <span class="json-key">"logo_url"</span>: <span class="json-string">"https://japan-map.com/wp-content/uploads/fukui.png"</span>
+                <span class="json-key">"citizen_day"</span>: {
+                    <span class="json-key">"month"</span>: <span class="json-number">5</span>,
+                    <span class="json-key">"day"</span>: <span class="json-number">9</span>
+                },
+                <span class="json-key">"capital"</span>: <span class="json-string">"富山市"</span>,
+                <span class="json-key">"logo_url"</span>: <span class="json-string">"https://japan-map.com/wp-content/uploads/toyama.png"</span>
+                <span class="json-key">"brief"</span>: <span class="json-string">"富山県（とやまけん）は、日本の中部地方に位置する県。県庁所在地は富山市。\n中部地方の日本海側、新潟県を含めた場合の北陸地方のほぼ中央にある。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』"</span>,
             }</code></pre>
         </ul>
 
