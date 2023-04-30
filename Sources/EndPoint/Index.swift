@@ -360,6 +360,9 @@ private let content = #"""
             <li>ユーザから名前、生年月日及び血液型を入力してもらいます。</li>
             <li>上記のデータと併せて、送信時の日付も一緒に入れて、上記の API に問い合わせてください。</li>
             <li>結果をもらったらその結果を表示してください。</li>
+            <ol>
+                <li>そのうち logo_url の部分は、その URL をパースし、該当 URL から画像データを取得し、その画像を表示してください。</li>
+            </ol>
         </ol>
 
         <h3 id="caution">注意点</h3>
@@ -398,8 +401,8 @@ private let content = #"""
 
         <h2 id="reference">参考記事</h2>
         <ul>
-            <li>提出された課題の評価ポイントに関しては、<a href="https://qiita.com/lovee/items/d76c68341ec3e7beb611">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。</li>
-            <li>CodoaPods の利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</li>
+            <li>本特別課題の評価方法等に関しては、<a href="https://qiita.com/lovee/items/674280065e0241528014">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。</li>
+            <li>CocoaPods の利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</li>
         </ul>
 
         <h2 id="reference">その他注意</h2>
