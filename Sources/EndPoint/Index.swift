@@ -402,7 +402,7 @@ private let content = #"""
         <h2 id="reference">参考記事</h2>
         <ul>
             <li>本特別課題の評価方法等に関しては、<a href="https://qiita.com/lovee/items/674280065e0241528014">こちらの記事</a>に詳しく書かれてありますので、ぜひご覧ください。</li>
-            <li>CodoaPods の利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</li>
+            <li>CocoaPods の利用に関しては <a href="https://qiita.com/ykws/items/b951a2e24ca85013e722">こちらの記事</a>も参照ください。</li>
         </ul>
 
         <h2 id="reference">その他注意</h2>
