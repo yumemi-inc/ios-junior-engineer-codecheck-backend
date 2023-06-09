@@ -5,17 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-cloud/Compute",
       "state" : {
-        "revision" : "1b8323caa0e44c87e426b3f414742ea3ab5ce343",
-        "version" : "1.11.0"
-      }
-    },
-    {
-      "identity" : "cryptoswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
-      "state" : {
-        "revision" : "95c18f1c1bc44d5547728621ed680850368f7a45",
-        "version" : "1.7.0"
+        "revision" : "cc89dba27ade5713a2ac167fc752c4f4fe00439a",
+        "version" : "2.17.0"
       }
     },
     {
@@ -25,6 +16,15 @@
       "state" : {
         "revision" : "7a26684c5fe8410f3a8b61634805fcc5b805ff38",
         "version" : "0.2.4"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto",
+      "state" : {
+        "revision" : "33a20e650c33f6d72d822d558333f2085effa3dc",
+        "version" : "2.5.0"
       }
     }
   ],
