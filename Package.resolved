@@ -73,6 +73,15 @@
       }
     },
     {
+      "identity" : "swift-openapi-compute",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/novr/swift-openapi-compute",
+      "state" : {
+        "revision" : "95afdbe81bf370b541a6de7fdcb9b0f41c847c7a",
+        "version" : "0.0.1"
+      }
+    },
+    {
       "identity" : "swift-openapi-generator",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-generator",
