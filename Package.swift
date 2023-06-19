@@ -21,6 +21,8 @@ let package = Package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
         ),
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "0.1.0"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "0.1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -31,7 +33,15 @@ let package = Package(
                 .product(name: "Compute", package: "Compute"),
 //                .product(name: "Ink", package: "ink"),
                 .product(name: "FakeFortuneTelling", package: "fake-fortune-telling"),
-            ]),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+            ],
+            plugins: [
+                .plugin(
+                    name: "OpenAPIGenerator",
+                    package: "swift-openapi-generator"
+                ),
+            ]
+        ),
         .testTarget(
             name: "EndPointTests",
             dependencies: ["EndPoint"]),
