@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'Sources/EndPoint/openapi.yaml'
+      - 'openapi.yaml'
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       - name: Build ReDoc HTML
         run: |
           npm install -g redoc-cli
-          redoc-cli bundle Sources/EndPoint/openapi.yaml
+          redoc-cli bundle openapi.yaml
           mkdir pages
           mv redoc-static.html pages/openapi.html
 
