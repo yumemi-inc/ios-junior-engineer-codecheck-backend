@@ -36,12 +36,6 @@ let package = Package(
                 .product(name: "FakeFortuneTelling", package: "fake-fortune-telling"),
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "OpenAPICompute", package: "swift-openapi-compute"),
-            ],
-            plugins: [
-                .plugin(
-                    name: "OpenAPIGenerator",
-                    package: "swift-openapi-generator"
-                ),
             ]
         ),
         .testTarget(
