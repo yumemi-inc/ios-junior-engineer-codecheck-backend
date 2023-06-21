@@ -1,6 +1,5 @@
 import Foundation
 import Compute
-import FakeFortuneTelling
 import OpenAPICompute
 
 @main
@@ -13,13 +12,4 @@ struct EndPoint {
     }
 
     static let router = Router()
-}
-
-extension EndPoint {
-    
-    static func handleIndexRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
-        try await response
-            .status(.ok)
-            .send(html: Index().html)
-    }
 }
