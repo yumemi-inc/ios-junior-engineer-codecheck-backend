@@ -21,8 +21,8 @@ let package = Package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
         ),
-        .package(url: "https://github.com/apple/swift-openapi-generator", from: "0.1.0"),
-        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "0.1.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "0.2.1"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "0.2.1"),
         .package(url: "https://github.com/novr/swift-openapi-compute", from: "0.0.1"),
     ],
     targets: [

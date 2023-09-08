@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattpolzin/OpenAPIKit.git",
       "state" : {
-        "revision" : "d40e6c3d57b1b27ac2114861d5a83cf8ee9d206d",
-        "version" : "3.0.0-alpha.6"
+        "revision" : "ccdcb64667de86f5ea1138000bc9d4f2155a7086",
+        "version" : "3.0.0-beta.3"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/novr/swift-openapi-compute",
       "state" : {
-        "revision" : "95afdbe81bf370b541a6de7fdcb9b0f41c847c7a",
-        "version" : "0.0.1"
+        "revision" : "5755e63cc4e4fba8c82fd67a42bfa42b8411a28c",
+        "version" : "0.0.2"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-generator",
       "state" : {
-        "revision" : "f530c906215528a7450fc7602b9f93d9236eb4c0",
-        "version" : "0.1.2"
+        "revision" : "99e31020c8654d72418f9033468ae496e3d0c21e",
+        "version" : "0.2.1"
       }
     },
     {
@@ -95,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-runtime",
       "state" : {
-        "revision" : "02ae849d3ed0905d467b13c9056658ca383c9749",
-        "version" : "0.1.3"
+        "revision" : "f0589f6e64fd22a6f9760749f71a1a965b68db23",
+        "version" : "0.2.1"
       }
     },
     {
