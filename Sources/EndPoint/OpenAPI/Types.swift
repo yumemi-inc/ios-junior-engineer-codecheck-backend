@@ -7,19 +7,19 @@ import Foundation
 #endif
 /// A type that performs HTTP operations defined by the OpenAPI document.
 public protocol APIProtocol: Sendable {
-    /// Operation `post-my-fortune` performs `POST` on `/my_fortune`
+    /// Get fortune for given person
     ///
-    /// - Remark: Generated from the `post-my-fortune` operation.
-    func post_my_fortune(_ input: Operations.post_my_fortune.Input) async throws
-        -> Operations.post_my_fortune.Output
+    /// This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+    ///
+    /// - Remark: HTTP `POST /my_fortune`.
+    /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)`.
+    func post_hyphen_my_hyphen_fortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws
+        -> Operations.post_hyphen_my_hyphen_fortune.Output
 }
 /// Server URLs defined in the OpenAPI document.
 public enum Servers {
     public static func server1() throws -> URL {
-        try URL(
-            validatingOpenAPIServerURL:
-                "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud"
-        )
+        try URL(validatingOpenAPIServerURL: "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud")
     }
 }
 /// Types generated from the components section of the OpenAPI document.
@@ -27,52 +27,80 @@ public enum Components {
     /// Types generated from the `#/components/schemas` section of the OpenAPI document.
     public enum Schemas {
         /// - Remark: Generated from `#/components/schemas/MyFortuneRequest`.
-        public struct MyFortuneRequest: Codable, Equatable, Hashable, Sendable {
+        public struct MyFortuneRequest: Codable, Hashable, Sendable {
             /// Target's name.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/name`.
             public var name: Swift.String
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday`.
-            public var birthday: Components.Schemas.YearMonthDay
+            public struct birthdayPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday/value1`.
+                public var value1: Components.Schemas.YearMonthDay
+                /// Target's birthday.
+                ///
+                /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday/value2`.
+                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                /// Creates a new `birthdayPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                ///   - value2: Target's birthday.
+                public init(value1: Components.Schemas.YearMonthDay, value2: OpenAPIRuntime.OpenAPIValueContainer) {
+                    self.value1 = value1
+                    self.value2 = value2
+                }
+                public init(from decoder: any Decoder) throws {
+                    value1 = try .init(from: decoder)
+                    value2 = try .init(from: decoder)
+                }
+                public func encode(to encoder: any Encoder) throws {
+                    try value1.encode(to: encoder)
+                    try value2.encode(to: encoder)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday`.
+            public var birthday: Components.Schemas.MyFortuneRequest.birthdayPayload
             /// Target's blood type.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/blood_type`.
-            @frozen
-            public enum blood_typePayload: RawRepresentable, Codable, Equatable, Hashable, Sendable,
-                _AutoLosslessStringConvertible, CaseIterable
-            {
-                case a
-                case b
-                case ab
-                case o
-                /// Parsed a raw value that was not defined in the OpenAPI document.
-                case undocumented(String)
-                public init?(rawValue: String) {
-                    switch rawValue {
-                    case "a": self = .a
-                    case "b": self = .b
-                    case "ab": self = .ab
-                    case "o": self = .o
-                    default: self = .undocumented(rawValue)
-                    }
-                }
-                public var rawValue: String {
-                    switch self {
-                    case let .undocumented(string): return string
-                    case .a: return "a"
-                    case .b: return "b"
-                    case .ab: return "ab"
-                    case .o: return "o"
-                    }
-                }
-                public static var allCases: [blood_typePayload] { [.a, .b, .ab, .o] }
+            @frozen public enum blood_typePayload: String, Codable, Hashable, Sendable {
+                case a = "a"
+                case b = "b"
+                case ab = "ab"
+                case o = "o"
             }
             /// Target's blood type.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/blood_type`.
             public var blood_type: Components.Schemas.MyFortuneRequest.blood_typePayload
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today`.
-            public var today: Components.Schemas.YearMonthDay
+            public struct todayPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today/value1`.
+                public var value1: Components.Schemas.YearMonthDay
+                /// Today's date.
+                ///
+                /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today/value2`.
+                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                /// Creates a new `todayPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                ///   - value2: Today's date.
+                public init(value1: Components.Schemas.YearMonthDay, value2: OpenAPIRuntime.OpenAPIValueContainer) {
+                    self.value1 = value1
+                    self.value2 = value2
+                }
+                public init(from decoder: any Decoder) throws {
+                    value1 = try .init(from: decoder)
+                    value2 = try .init(from: decoder)
+                }
+                public func encode(to encoder: any Encoder) throws {
+                    try value1.encode(to: encoder)
+                    try value2.encode(to: encoder)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today`.
+            public var today: Components.Schemas.MyFortuneRequest.todayPayload
             /// Creates a new `MyFortuneRequest`.
             ///
             /// - Parameters:
@@ -82,9 +110,9 @@ public enum Components {
             ///   - today:
             public init(
                 name: Swift.String,
-                birthday: Components.Schemas.YearMonthDay,
+                birthday: Components.Schemas.MyFortuneRequest.birthdayPayload,
                 blood_type: Components.Schemas.MyFortuneRequest.blood_typePayload,
-                today: Components.Schemas.YearMonthDay
+                today: Components.Schemas.MyFortuneRequest.todayPayload
             ) {
                 self.name = name
                 self.birthday = birthday
@@ -99,7 +127,7 @@ public enum Components {
             }
         }
         /// - Remark: Generated from `#/components/schemas/MyFortuneResponse`.
-        public struct MyFortuneResponse: Codable, Equatable, Hashable, Sendable {
+        public struct MyFortuneResponse: Codable, Hashable, Sendable {
             /// Result prefecture's name.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/name`.
@@ -113,7 +141,33 @@ public enum Components {
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/capital`.
             public var capital: Swift.String
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
-            public var citizen_day: Components.Schemas.MonthDay?
+            public struct citizen_dayPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value1`.
+                public var value1: Components.Schemas.MonthDay
+                /// Result prefecture's citizen date (if it has one).
+                ///
+                /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value2`.
+                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                /// Creates a new `citizen_dayPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                ///   - value2: Result prefecture's citizen date (if it has one).
+                public init(value1: Components.Schemas.MonthDay, value2: OpenAPIRuntime.OpenAPIValueContainer) {
+                    self.value1 = value1
+                    self.value2 = value2
+                }
+                public init(from decoder: any Decoder) throws {
+                    value1 = try .init(from: decoder)
+                    value2 = try .init(from: decoder)
+                }
+                public func encode(to encoder: any Encoder) throws {
+                    try value1.encode(to: encoder)
+                    try value2.encode(to: encoder)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
+            public var citizen_day: Components.Schemas.MyFortuneResponse.citizen_dayPayload?
             /// Whether result prefecture has a coast line or not.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/has_coast_line`.
@@ -135,7 +189,7 @@ public enum Components {
                 name: Swift.String,
                 brief: Swift.String,
                 capital: Swift.String,
-                citizen_day: Components.Schemas.MonthDay? = nil,
+                citizen_day: Components.Schemas.MyFortuneResponse.citizen_dayPayload? = nil,
                 has_coast_line: Swift.Bool,
                 logo_url: Swift.String
             ) {
@@ -156,7 +210,7 @@ public enum Components {
             }
         }
         /// - Remark: Generated from `#/components/schemas/YearMonthDay`.
-        public struct YearMonthDay: Codable, Equatable, Hashable, Sendable {
+        public struct YearMonthDay: Codable, Hashable, Sendable {
             /// Year number
             ///
             /// - Remark: Generated from `#/components/schemas/YearMonthDay/year`.
@@ -187,7 +241,7 @@ public enum Components {
             }
         }
         /// - Remark: Generated from `#/components/schemas/MonthDay`.
-        public struct MonthDay: Codable, Equatable, Hashable, Sendable {
+        public struct MonthDay: Codable, Hashable, Sendable {
             /// Month number
             ///
             /// - Remark: Generated from `#/components/schemas/MonthDay/month`.
@@ -222,122 +276,106 @@ public enum Components {
 }
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 public enum Operations {
-    /// Operation `post-my-fortune` performs `POST` on `/my_fortune`
+    /// Get fortune for given person
     ///
-    /// - Remark: Generated from the `post-my-fortune` operation.
-    public enum post_my_fortune {
+    /// This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+    ///
+    /// - Remark: HTTP `POST /my_fortune`.
+    /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)`.
+    public enum post_hyphen_my_hyphen_fortune {
         public static let id: String = "post-my-fortune"
-        public struct Input: Sendable, Equatable, Hashable {
-            public struct Path: Sendable, Equatable, Hashable {
-                /// Creates a new `Path`.
-                public init() {}
-            }
-            public var path: Operations.post_my_fortune.Input.Path
-            public struct Query: Sendable, Equatable, Hashable {
-                /// Creates a new `Query`.
-                public init() {}
-            }
-            public var query: Operations.post_my_fortune.Input.Query
-            public struct Headers: Sendable, Equatable, Hashable {
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/my_fortune/POST/header`.
+            public struct Headers: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/my_fortune/POST/header/API-Version`.
-                @frozen
-                public enum API_VersionPayload: RawRepresentable, Codable, Equatable, Hashable,
-                    Sendable, _AutoLosslessStringConvertible, CaseIterable
-                {
-                    case v1
-                    /// Parsed a raw value that was not defined in the OpenAPI document.
-                    case undocumented(String)
-                    public init?(rawValue: String) {
-                        switch rawValue {
-                        case "v1": self = .v1
-                        default: self = .undocumented(rawValue)
-                        }
-                    }
-                    public var rawValue: String {
-                        switch self {
-                        case let .undocumented(string): return string
-                        case .v1: return "v1"
-                        }
-                    }
-                    public static var allCases: [API_VersionPayload] { [.v1] }
-                }
-                public var API_Version: Operations.post_my_fortune.Input.Headers.API_VersionPayload?
+                @frozen public enum API_hyphen_VersionPayload: String, Codable, Hashable, Sendable { case v1 = "v1" }
+                /// API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version.
+                ///
+                /// - Remark: Generated from `#/paths/my_fortune/POST/header/API-Version`.
+                public var API_hyphen_Version:
+                    Operations.post_hyphen_my_hyphen_fortune.Input.Headers.API_hyphen_VersionPayload?
+                public var accept:
+                    [OpenAPIRuntime.AcceptHeaderContentType<
+                        Operations.post_hyphen_my_hyphen_fortune.AcceptableContentType
+                    >]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
-                ///   - API_Version:
+                ///   - API_hyphen_Version: API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version.
+                ///   - accept:
                 public init(
-                    API_Version: Operations.post_my_fortune.Input.Headers.API_VersionPayload? = nil
-                ) { self.API_Version = API_Version }
+                    API_hyphen_Version: Operations.post_hyphen_my_hyphen_fortune.Input.Headers
+                        .API_hyphen_VersionPayload? = nil,
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<
+                        Operations.post_hyphen_my_hyphen_fortune.AcceptableContentType
+                    >] = .defaultValues()
+                ) {
+                    self.API_hyphen_Version = API_hyphen_Version
+                    self.accept = accept
+                }
             }
-            public var headers: Operations.post_my_fortune.Input.Headers
-            public struct Cookies: Sendable, Equatable, Hashable {
-                /// Creates a new `Cookies`.
-                public init() {}
-            }
-            public var cookies: Operations.post_my_fortune.Input.Cookies
-            public enum Body: Sendable, Equatable, Hashable {
+            public var headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers
+            /// - Remark: Generated from `#/paths/my_fortune/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/my_fortune/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.MyFortuneRequest)
             }
-            public var body: Operations.post_my_fortune.Input.Body
+            public var body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
-            ///   - path:
-            ///   - query:
             ///   - headers:
-            ///   - cookies:
             ///   - body:
             public init(
-                path: Operations.post_my_fortune.Input.Path = .init(),
-                query: Operations.post_my_fortune.Input.Query = .init(),
-                headers: Operations.post_my_fortune.Input.Headers = .init(),
-                cookies: Operations.post_my_fortune.Input.Cookies = .init(),
-                body: Operations.post_my_fortune.Input.Body
+                headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers = .init(),
+                body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
             ) {
-                self.path = path
-                self.query = query
                 self.headers = headers
-                self.cookies = cookies
                 self.body = body
             }
         }
-        public enum Output: Sendable, Equatable, Hashable {
-            public struct Ok: Sendable, Equatable, Hashable {
-                public struct Headers: Sendable, Equatable, Hashable {
-                    /// Creates a new `Headers`.
-                    public init() {}
-                }
-                /// Received HTTP response headers
-                public var headers: Operations.post_my_fortune.Output.Ok.Headers
-                public enum Body: Sendable, Equatable, Hashable {
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/my_fortune/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/my_fortune/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.MyFortuneResponse)
                 }
                 /// Received HTTP response body
-                public var body: Operations.post_my_fortune.Output.Ok.Body
+                public var body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
-                ///   - headers: Received HTTP response headers
                 ///   - body: Received HTTP response body
-                public init(
-                    headers: Operations.post_my_fortune.Output.Ok.Headers = .init(),
-                    body: Operations.post_my_fortune.Output.Ok.Body
-                ) {
-                    self.headers = headers
-                    self.body = body
-                }
+                public init(body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body) { self.body = body }
             }
             /// Success
             ///
             /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
-            case ok(Operations.post_my_fortune.Output.Ok)
+            case ok(Operations.post_hyphen_my_hyphen_fortune.Output.Ok)
             /// Undocumented response.
             ///
             /// A response with a code that is not documented in the OpenAPI document.
             case undocumented(statusCode: Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(String)
+            public init?(rawValue: String) {
+                switch rawValue.lowercased() {
+                case "application/json": self = .json
+                default: self = .other(rawValue)
+                }
+            }
+            public var rawValue: String {
+                switch self {
+                case let .other(string): return string
+                case .json: return "application/json"
+                }
+            }
+            public static var allCases: [Self] { [.json] }
         }
     }
 }

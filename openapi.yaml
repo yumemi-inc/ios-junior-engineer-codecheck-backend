@@ -53,14 +53,18 @@ components:
           description: "Target's name."
           example: "ゆめみん"
         birthday:
-          $ref: "#/components/schemas/YearMonthDay"
+          allOf:
+          - $ref: "#/components/schemas/YearMonthDay"
+          - description: "Target's birthday."
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
           description: "Target's blood type."
           example: "ab"
         today:
-          $ref: "#/components/schemas/YearMonthDay"
+          allOf:
+            - $ref: "#/components/schemas/YearMonthDay"
+            - description: "Today's date."
       required:
         - name
         - birthday
@@ -82,7 +86,9 @@ components:
           description: "Result prefecture's capital city."
           example: "富山市"
         citizen_day:
-          $ref: "#/components/schemas/MonthDay"
+          allOf:
+            - $ref: "#/components/schemas/MonthDay"
+            - description: "Result prefecture's citizen date (if it has one)."
         has_coast_line:
           type: boolean
           description: "Whether result prefecture has a coast line or not."

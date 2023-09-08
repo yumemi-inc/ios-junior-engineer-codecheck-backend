@@ -14,10 +14,10 @@ extension APIProtocol {
     ///   - configuration: A set of configuration values for the server.
     ///   - middlewares: A list of middlewares to call before the handler.
     public func registerHandlers(
-        on transport: ServerTransport,
+        on transport: any ServerTransport,
         serverURL: URL = .defaultOpenAPIServerURL,
         configuration: Configuration = .init(),
-        middlewares: [ServerMiddleware] = []
+        middlewares: [any ServerMiddleware] = []
     ) throws {
         let server = UniversalServer(
             serverURL: serverURL,
@@ -26,7 +26,7 @@ extension APIProtocol {
             middlewares: middlewares
         )
         try transport.register(
-            { try await server.post_my_fortune(request: $0, metadata: $1) },
+            { try await server.post_hyphen_my_hyphen_fortune(request: $0, metadata: $1) },
             method: .post,
             path: server.apiPathComponentsWithServerPrefix(["my_fortune"]),
             queryItemNames: []
@@ -34,64 +34,57 @@ extension APIProtocol {
     }
 }
 fileprivate extension UniversalServer where APIHandler: APIProtocol {
-    /// Operation `post-my-fortune` performs `POST` on `/my_fortune`
+    /// Get fortune for given person
     ///
-    /// - Remark: Generated from the `post-my-fortune` operation.
-    func post_my_fortune(request: Request, metadata: ServerRequestMetadata) async throws -> Response
-    {
+    /// This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
+    ///
+    /// - Remark: HTTP `POST /my_fortune`.
+    /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)`.
+    func post_hyphen_my_hyphen_fortune(request: Request, metadata: ServerRequestMetadata) async throws -> Response {
         try await handle(
             request: request,
             with: metadata,
-            forOperation: Operations.post_my_fortune.id,
-            using: APIHandler.post_my_fortune,
+            forOperation: Operations.post_hyphen_my_hyphen_fortune.id,
+            using: { APIHandler.post_hyphen_my_hyphen_fortune($0) },
             deserializer: { request, metadata in
-                let path: Operations.post_my_fortune.Input.Path = .init()
-                let query: Operations.post_my_fortune.Input.Query = .init()
-                let headers: Operations.post_my_fortune.Input.Headers = .init(
-                    API_Version: try converter.getOptionalHeaderFieldAsText(
+                let headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers = .init(
+                    API_hyphen_Version: try converter.getOptionalHeaderFieldAsURI(
                         in: request.headerFields,
                         name: "API-Version",
-                        as: Operations.post_my_fortune.Input.Headers.API_VersionPayload.self
-                    )
+                        as: Operations.post_hyphen_my_hyphen_fortune.Input.Headers.API_hyphen_VersionPayload.self
+                    ),
+                    accept: try converter.extractAcceptHeaderIfPresent(in: request.headerFields)
                 )
-                let cookies: Operations.post_my_fortune.Input.Cookies = .init()
-                let body: Operations.post_my_fortune.Input.Body =
-                    try converter.getRequiredRequestBodyAsJSON(
+                let contentType = converter.extractContentTypeIfPresent(in: request.headerFields)
+                let body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
+                if try contentType == nil
+                    || converter.isMatchingContentType(received: contentType, expectedRaw: "application/json")
+                {
+                    body = try converter.getRequiredRequestBodyAsJSON(
                         Components.Schemas.MyFortuneRequest.self,
                         from: request.body,
                         transforming: { value in .json(value) }
                     )
-                return Operations.post_my_fortune.Input(
-                    path: path,
-                    query: query,
-                    headers: headers,
-                    cookies: cookies,
-                    body: body
-                )
+                } else {
+                    throw converter.makeUnexpectedContentTypeError(contentType: contentType)
+                }
+                return Operations.post_hyphen_my_hyphen_fortune.Input(headers: headers, body: body)
             },
             serializer: { output, request in
                 switch output {
                 case let .ok(value):
                     suppressUnusedWarning(value)
-                    var response: Response = .init(statusCode: 200)
+                    var response = Response(statusCode: 200)
                     suppressMutabilityWarning(&response)
-                    try converter.validateAcceptIfPresent(
-                        "application/json",
-                        in: request.headerFields
-                    )
-                    response.body = try converter.setResponseBodyAsJSON(
-                        value.body,
-                        headerFields: &response.headerFields,
-                        transforming: { wrapped in
-                            switch wrapped {
-                            case let .json(value):
-                                return .init(
-                                    value: value,
-                                    contentType: "application/json; charset=utf-8"
-                                )
-                            }
-                        }
-                    )
+                    switch value.body {
+                    case let .json(value):
+                        try converter.validateAcceptIfPresent("application/json", in: request.headerFields)
+                        response.body = try converter.setResponseBodyAsJSON(
+                            value,
+                            headerFields: &response.headerFields,
+                            contentType: "application/json; charset=utf-8"
+                        )
+                    }
                     return response
                 case let .undocumented(statusCode, _): return .init(statusCode: statusCode)
                 }
