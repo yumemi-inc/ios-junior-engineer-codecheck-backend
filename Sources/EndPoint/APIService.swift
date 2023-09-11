@@ -24,26 +24,24 @@ struct APIService : APIProtocol {
             .send(html: Index().html)
     }
 
-    func post_my_fortune(_ input: Operations.post_my_fortune.Input) async throws -> Operations.post_my_fortune.Output {
-        let version = input.headers.API_Version ?? .v1
+    func post_hyphen_my_hyphen_fortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws
+        -> Operations.post_hyphen_my_hyphen_fortune.Output {
+            let version = input.headers.API_hyphen_Version ?? .v1
         switch version {
         case .v1:
             return try await askFortune(input)
-
-        case .undocumented(_):
-            throw APIServiceError.InvalidateInput
         }
     }
 
-    private func askFortune(_ input: Operations.post_my_fortune.Input) async throws -> Operations.post_my_fortune.Output {
+    private func askFortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws -> Operations.post_hyphen_my_hyphen_fortune.Output {
         guard case let .json(body) = input.body else {
             throw APIServiceError.InvalidateInput
         }
         let result = try FortuneTeller.prefectureForYou(
             name: .init(body.name),
-            birthday: .init(body.birthday),
+            birthday: .init(body.birthday.value1),
             bloodType: .init(body.blood_type),
-            today: .init(body.today))
+            today: .init(body.today.value1))
         return .ok(.init(body: .json(.init(
             name: result.name,
             brief: result.brief,
@@ -65,8 +63,6 @@ extension BloodType {
         case .b: self = .b
         case .ab: self = .ab
         case .o: self = .o
-        case .undocumented(_):
-            throw APIServiceError.InvalidateInput
         }
     }
 }
