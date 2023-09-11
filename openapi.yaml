@@ -54,8 +54,8 @@ components:
           example: "ゆめみん"
         birthday:
           allOf:
-          - $ref: "#/components/schemas/YearMonthDay"
-          - description: "Target's birthday."
+            - $ref: "#/components/schemas/YearMonthDay"
+            - description: "Target's birthday."
         blood_type:
           type: string
           enum: ["a", "b", "ab", "o"]
