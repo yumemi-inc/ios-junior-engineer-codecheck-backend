@@ -109,17 +109,14 @@ components:
       properties:
         year:
           type: integer
-          format: int32
           description: "Year number"
           example: 2000
         month:
           type: integer
-          format: int32
           description: "Month number"
           example: 1
         day:
           type: integer
-          format: int32
           description: "Day number"
           example: 27
       required:
@@ -131,12 +128,10 @@ components:
       properties:
         month:
           type: integer
-          format: int32
           description: "Month number"
           example: 5
         day:
           type: integer
-          format: int32
           description: "Day number"
           example: 9
       required:
