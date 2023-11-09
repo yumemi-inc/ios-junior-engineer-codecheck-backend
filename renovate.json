@@ -12,5 +12,6 @@
     "renovate"
   ],
   "prHourlyLimit": 0,
-  "prConcurrentLimit": 3
+  "prConcurrentLimit": 3,
+  "reviewers": ["team:yumemi-inc/ios_wg_recruitment"]
 }
