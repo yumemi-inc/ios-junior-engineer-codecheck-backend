@@ -6,7 +6,8 @@
     ":timezone(Asia/Tokyo)"
   ],
   "configMigration": true,
-  "branchPrefix": "ci/renovate/",
+  "branchPrefix": "ci-",
+  "hashedBranchLength": 9,
   "labels": [
     "renovate"
   ],
