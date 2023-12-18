@@ -18,7 +18,7 @@ extension APIProtocol {
     ///   request handlers.
     ///   - configuration: A set of configuration values for the server.
     ///   - middlewares: A list of middlewares to call before the handler.
-    public func registerHandlers(
+    internal func registerHandlers(
         on transport: any ServerTransport,
         serverURL: Foundation.URL = .defaultOpenAPIServerURL,
         configuration: Configuration = .init(),

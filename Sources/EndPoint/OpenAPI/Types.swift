@@ -10,7 +10,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 #endif
 /// A type that performs HTTP operations defined by the OpenAPI document.
-public protocol APIProtocol: Sendable {
+internal protocol APIProtocol: Sendable {
     /// Get fortune for given person
     ///
     /// This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
@@ -28,7 +28,7 @@ extension APIProtocol {
     ///
     /// - Remark: HTTP `POST /my_fortune`.
     /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)`.
-    public func post_hyphen_my_hyphen_fortune(
+    internal func post_hyphen_my_hyphen_fortune(
         headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers = .init(),
         body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
     ) async throws -> Operations.post_hyphen_my_hyphen_fortune.Output {
@@ -40,8 +40,8 @@ extension APIProtocol {
 }
 
 /// Server URLs defined in the OpenAPI document.
-public enum Servers {
-    public static func server1() throws -> Foundation.URL {
+internal enum Servers {
+    internal static func server1() throws -> Foundation.URL {
         try Foundation.URL(
             validatingOpenAPIServerURL: "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud",
             variables: []
@@ -50,50 +50,50 @@ public enum Servers {
 }
 
 /// Types generated from the components section of the OpenAPI document.
-public enum Components {
+internal enum Components {
     /// Types generated from the `#/components/schemas` section of the OpenAPI document.
-    public enum Schemas {
+    internal enum Schemas {
         /// - Remark: Generated from `#/components/schemas/MyFortuneRequest`.
-        public struct MyFortuneRequest: Codable, Hashable, Sendable {
+        internal struct MyFortuneRequest: Codable, Hashable, Sendable {
             /// Target's name.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/name`.
-            public var name: Swift.String
+            internal var name: Swift.String
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday`.
-            public struct birthdayPayload: Codable, Hashable, Sendable {
+            internal struct birthdayPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday/value1`.
-                public var value1: Components.Schemas.YearMonthDay
+                internal var value1: Components.Schemas.YearMonthDay
                 /// Target's birthday.
                 ///
                 /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday/value2`.
-                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                internal var value2: OpenAPIRuntime.OpenAPIValueContainer
                 /// Creates a new `birthdayPayload`.
                 ///
                 /// - Parameters:
                 ///   - value1:
                 ///   - value2: Target's birthday.
-                public init(
+                internal init(
                     value1: Components.Schemas.YearMonthDay,
                     value2: OpenAPIRuntime.OpenAPIValueContainer
                 ) {
                     self.value1 = value1
                     self.value2 = value2
                 }
-                public init(from decoder: any Decoder) throws {
+                internal init(from decoder: any Decoder) throws {
                     value1 = try .init(from: decoder)
                     value2 = try .init(from: decoder)
                 }
-                public func encode(to encoder: any Encoder) throws {
+                internal func encode(to encoder: any Encoder) throws {
                     try value1.encode(to: encoder)
                     try value2.encode(to: encoder)
                 }
             }
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/birthday`.
-            public var birthday: Components.Schemas.MyFortuneRequest.birthdayPayload
+            internal var birthday: Components.Schemas.MyFortuneRequest.birthdayPayload
             /// Target's blood type.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/blood_type`.
-            @frozen public enum blood_typePayload: String, Codable, Hashable, Sendable {
+            @frozen internal enum blood_typePayload: String, Codable, Hashable, Sendable {
                 case a = "a"
                 case b = "b"
                 case ab = "ab"
@@ -102,38 +102,38 @@ public enum Components {
             /// Target's blood type.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/blood_type`.
-            public var blood_type: Components.Schemas.MyFortuneRequest.blood_typePayload
+            internal var blood_type: Components.Schemas.MyFortuneRequest.blood_typePayload
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today`.
-            public struct todayPayload: Codable, Hashable, Sendable {
+            internal struct todayPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today/value1`.
-                public var value1: Components.Schemas.YearMonthDay
+                internal var value1: Components.Schemas.YearMonthDay
                 /// Today's date.
                 ///
                 /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today/value2`.
-                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                internal var value2: OpenAPIRuntime.OpenAPIValueContainer
                 /// Creates a new `todayPayload`.
                 ///
                 /// - Parameters:
                 ///   - value1:
                 ///   - value2: Today's date.
-                public init(
+                internal init(
                     value1: Components.Schemas.YearMonthDay,
                     value2: OpenAPIRuntime.OpenAPIValueContainer
                 ) {
                     self.value1 = value1
                     self.value2 = value2
                 }
-                public init(from decoder: any Decoder) throws {
+                internal init(from decoder: any Decoder) throws {
                     value1 = try .init(from: decoder)
                     value2 = try .init(from: decoder)
                 }
-                public func encode(to encoder: any Encoder) throws {
+                internal func encode(to encoder: any Encoder) throws {
                     try value1.encode(to: encoder)
                     try value2.encode(to: encoder)
                 }
             }
             /// - Remark: Generated from `#/components/schemas/MyFortuneRequest/today`.
-            public var today: Components.Schemas.MyFortuneRequest.todayPayload
+            internal var today: Components.Schemas.MyFortuneRequest.todayPayload
             /// Creates a new `MyFortuneRequest`.
             ///
             /// - Parameters:
@@ -141,7 +141,7 @@ public enum Components {
             ///   - birthday:
             ///   - blood_type: Target's blood type.
             ///   - today:
-            public init(
+            internal init(
                 name: Swift.String,
                 birthday: Components.Schemas.MyFortuneRequest.birthdayPayload,
                 blood_type: Components.Schemas.MyFortuneRequest.blood_typePayload,
@@ -152,7 +152,7 @@ public enum Components {
                 self.blood_type = blood_type
                 self.today = today
             }
-            public enum CodingKeys: String, CodingKey {
+            internal enum CodingKeys: String, CodingKey {
                 case name
                 case birthday
                 case blood_type
@@ -160,58 +160,58 @@ public enum Components {
             }
         }
         /// - Remark: Generated from `#/components/schemas/MyFortuneResponse`.
-        public struct MyFortuneResponse: Codable, Hashable, Sendable {
+        internal struct MyFortuneResponse: Codable, Hashable, Sendable {
             /// Result prefecture's name.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/name`.
-            public var name: Swift.String
+            internal var name: Swift.String
             /// Result prefecture's brief instruction.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/brief`.
-            public var brief: Swift.String
+            internal var brief: Swift.String
             /// Result prefecture's capital city.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/capital`.
-            public var capital: Swift.String
+            internal var capital: Swift.String
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
-            public struct citizen_dayPayload: Codable, Hashable, Sendable {
+            internal struct citizen_dayPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value1`.
-                public var value1: Components.Schemas.MonthDay
+                internal var value1: Components.Schemas.MonthDay
                 /// Result prefecture's citizen date (if it has one).
                 ///
                 /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value2`.
-                public var value2: OpenAPIRuntime.OpenAPIValueContainer
+                internal var value2: OpenAPIRuntime.OpenAPIValueContainer
                 /// Creates a new `citizen_dayPayload`.
                 ///
                 /// - Parameters:
                 ///   - value1:
                 ///   - value2: Result prefecture's citizen date (if it has one).
-                public init(
+                internal init(
                     value1: Components.Schemas.MonthDay,
                     value2: OpenAPIRuntime.OpenAPIValueContainer
                 ) {
                     self.value1 = value1
                     self.value2 = value2
                 }
-                public init(from decoder: any Decoder) throws {
+                internal init(from decoder: any Decoder) throws {
                     value1 = try .init(from: decoder)
                     value2 = try .init(from: decoder)
                 }
-                public func encode(to encoder: any Encoder) throws {
+                internal func encode(to encoder: any Encoder) throws {
                     try value1.encode(to: encoder)
                     try value2.encode(to: encoder)
                 }
             }
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
-            public var citizen_day: Components.Schemas.MyFortuneResponse.citizen_dayPayload?
+            internal var citizen_day: Components.Schemas.MyFortuneResponse.citizen_dayPayload?
             /// Whether result prefecture has a coast line or not.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/has_coast_line`.
-            public var has_coast_line: Swift.Bool
+            internal var has_coast_line: Swift.Bool
             /// Result prefecture's logo's URL.
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/logo_url`.
-            public var logo_url: Swift.String
+            internal var logo_url: Swift.String
             /// Creates a new `MyFortuneResponse`.
             ///
             /// - Parameters:
@@ -221,7 +221,7 @@ public enum Components {
             ///   - citizen_day:
             ///   - has_coast_line: Whether result prefecture has a coast line or not.
             ///   - logo_url: Result prefecture's logo's URL.
-            public init(
+            internal init(
                 name: Swift.String,
                 brief: Swift.String,
                 capital: Swift.String,
@@ -236,7 +236,7 @@ public enum Components {
                 self.has_coast_line = has_coast_line
                 self.logo_url = logo_url
             }
-            public enum CodingKeys: String, CodingKey {
+            internal enum CodingKeys: String, CodingKey {
                 case name
                 case brief
                 case capital
@@ -246,26 +246,26 @@ public enum Components {
             }
         }
         /// - Remark: Generated from `#/components/schemas/YearMonthDay`.
-        public struct YearMonthDay: Codable, Hashable, Sendable {
+        internal struct YearMonthDay: Codable, Hashable, Sendable {
             /// Year number
             ///
             /// - Remark: Generated from `#/components/schemas/YearMonthDay/year`.
-            public var year: Swift.Int
+            internal var year: Swift.Int
             /// Month number
             ///
             /// - Remark: Generated from `#/components/schemas/YearMonthDay/month`.
-            public var month: Swift.Int
+            internal var month: Swift.Int
             /// Day number
             ///
             /// - Remark: Generated from `#/components/schemas/YearMonthDay/day`.
-            public var day: Swift.Int
+            internal var day: Swift.Int
             /// Creates a new `YearMonthDay`.
             ///
             /// - Parameters:
             ///   - year: Year number
             ///   - month: Month number
             ///   - day: Day number
-            public init(
+            internal init(
                 year: Swift.Int,
                 month: Swift.Int,
                 day: Swift.Int
@@ -274,78 +274,78 @@ public enum Components {
                 self.month = month
                 self.day = day
             }
-            public enum CodingKeys: String, CodingKey {
+            internal enum CodingKeys: String, CodingKey {
                 case year
                 case month
                 case day
             }
         }
         /// - Remark: Generated from `#/components/schemas/MonthDay`.
-        public struct MonthDay: Codable, Hashable, Sendable {
+        internal struct MonthDay: Codable, Hashable, Sendable {
             /// Month number
             ///
             /// - Remark: Generated from `#/components/schemas/MonthDay/month`.
-            public var month: Swift.Int
+            internal var month: Swift.Int
             /// Day number
             ///
             /// - Remark: Generated from `#/components/schemas/MonthDay/day`.
-            public var day: Swift.Int
+            internal var day: Swift.Int
             /// Creates a new `MonthDay`.
             ///
             /// - Parameters:
             ///   - month: Month number
             ///   - day: Day number
-            public init(
+            internal init(
                 month: Swift.Int,
                 day: Swift.Int
             ) {
                 self.month = month
                 self.day = day
             }
-            public enum CodingKeys: String, CodingKey {
+            internal enum CodingKeys: String, CodingKey {
                 case month
                 case day
             }
         }
     }
     /// Types generated from the `#/components/parameters` section of the OpenAPI document.
-    public enum Parameters {}
+    internal enum Parameters {}
     /// Types generated from the `#/components/requestBodies` section of the OpenAPI document.
-    public enum RequestBodies {}
+    internal enum RequestBodies {}
     /// Types generated from the `#/components/responses` section of the OpenAPI document.
-    public enum Responses {}
+    internal enum Responses {}
     /// Types generated from the `#/components/headers` section of the OpenAPI document.
-    public enum Headers {}
+    internal enum Headers {}
 }
 
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
-public enum Operations {
+internal enum Operations {
     /// Get fortune for given person
     ///
     /// This endpoint returns the fortune of a person based on their name, birthday, and blood type, as well as the current date.
     ///
     /// - Remark: HTTP `POST /my_fortune`.
     /// - Remark: Generated from `#/paths//my_fortune/post(post-my-fortune)`.
-    public enum post_hyphen_my_hyphen_fortune {
-        public static let id: Swift.String = "post-my-fortune"
-        public struct Input: Sendable, Hashable {
+    internal enum post_hyphen_my_hyphen_fortune {
+        internal static let id: Swift.String = "post-my-fortune"
+        internal struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/my_fortune/POST/header`.
-            public struct Headers: Sendable, Hashable {
+            internal struct Headers: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/my_fortune/POST/header/API-Version`.
-                @frozen public enum API_hyphen_VersionPayload: String, Codable, Hashable, Sendable {
+                @frozen internal enum API_hyphen_VersionPayload: String, Codable, Hashable, Sendable {
                     case v1 = "v1"
                 }
                 /// API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version.
                 ///
                 /// - Remark: Generated from `#/paths/my_fortune/POST/header/API-Version`.
-                public var API_hyphen_Version: Operations.post_hyphen_my_hyphen_fortune.Input.Headers.API_hyphen_VersionPayload?
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.post_hyphen_my_hyphen_fortune.AcceptableContentType>]
+                internal var API_hyphen_Version: Operations.post_hyphen_my_hyphen_fortune.Input.Headers.API_hyphen_VersionPayload?
+                internal var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.post_hyphen_my_hyphen_fortune.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - API_hyphen_Version: API version you'd like to use in your sending request. Currently only `v1` available. If you don't attach this parameter in your header, system will use the latest API version.
                 ///   - accept:
-                public init(
+                internal init(
                     API_hyphen_Version: Operations.post_hyphen_my_hyphen_fortune.Input.Headers.API_hyphen_VersionPayload? = nil,
                     accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.post_hyphen_my_hyphen_fortune.AcceptableContentType>] = .defaultValues()
                 ) {
@@ -353,19 +353,19 @@ public enum Operations {
                     self.accept = accept
                 }
             }
-            public var headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers
+            internal var headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers
             /// - Remark: Generated from `#/paths/my_fortune/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
+            @frozen internal enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/my_fortune/POST/requestBody/content/application\/json`.
                 case json(Components.Schemas.MyFortuneRequest)
             }
-            public var body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
+            internal var body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - headers:
             ///   - body:
-            public init(
+            internal init(
                 headers: Operations.post_hyphen_my_hyphen_fortune.Input.Headers = .init(),
                 body: Operations.post_hyphen_my_hyphen_fortune.Input.Body
             ) {
@@ -373,17 +373,17 @@ public enum Operations {
                 self.body = body
             }
         }
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
+        @frozen internal enum Output: Sendable, Hashable {
+            internal struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/my_fortune/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
+                @frozen internal enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/my_fortune/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.MyFortuneResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.MyFortuneResponse {
+                    internal var json: Components.Schemas.MyFortuneResponse {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -393,12 +393,12 @@ public enum Operations {
                     }
                 }
                 /// Received HTTP response body
-                public var body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body
+                internal var body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body
                 /// Creates a new `Ok`.
                 ///
                 /// - Parameters:
                 ///   - body: Received HTTP response body
-                public init(body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body) {
+                internal init(body: Operations.post_hyphen_my_hyphen_fortune.Output.Ok.Body) {
                     self.body = body
                 }
             }
@@ -412,7 +412,7 @@ public enum Operations {
             ///
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
-            public var ok: Operations.post_hyphen_my_hyphen_fortune.Output.Ok {
+            internal var ok: Operations.post_hyphen_my_hyphen_fortune.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -430,10 +430,10 @@ public enum Operations {
             /// A response with a code that is not documented in the OpenAPI document.
             case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
         }
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
+        @frozen internal enum AcceptableContentType: AcceptableProtocol {
             case json
             case other(Swift.String)
-            public init?(rawValue: Swift.String) {
+            internal init?(rawValue: Swift.String) {
                 switch rawValue.lowercased() {
                 case "application/json":
                     self = .json
@@ -441,7 +441,7 @@ public enum Operations {
                     self = .other(rawValue)
                 }
             }
-            public var rawValue: Swift.String {
+            internal var rawValue: Swift.String {
                 switch self {
                 case let .other(string):
                     return string
@@ -449,7 +449,7 @@ public enum Operations {
                     return "application/json"
                 }
             }
-            public static var allCases: [Self] {
+            internal static var allCases: [Self] {
                 [
                     .json
                 ]
