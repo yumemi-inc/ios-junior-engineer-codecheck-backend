@@ -28,7 +28,7 @@ jobs:
           mkdir pages
           mv redoc-static.html pages/openapi.html
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: pages
       - uses: actions/upload-pages-artifact@v2
