@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-cloud/Compute",
       "state" : {
-        "revision" : "542e212eb2f8eed7740205de30cc57e9e0845cfe",
-        "version" : "2.18.0"
+        "revision" : "5d48d24c9515f3a0e760fe2837d174fa2a8ffcda",
+        "version" : "3.1.0"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto",
       "state" : {
-        "revision" : "60f13f60c4d093691934dc6cfdf5f508ada1f894",
-        "version" : "2.6.0"
+        "revision" : "f0525da24dc3c6cbb2b6b338b65042bc91cbc4bb",
+        "version" : "3.3.0"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/novr/swift-openapi-compute",
       "state" : {
-        "revision" : "0716fd4d82aa8db68702fe7130f82c1445e9af0b",
-        "version" : "0.1.2"
+        "revision" : "feaf3fe85db1afa1627a97044bee3d144cf3bf38",
+        "version" : "0.2.0"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-generator",
       "state" : {
-        "revision" : "b18becec9d33b8a23d6252b47bb6bf1d45304244",
-        "version" : "1.2.0"
+        "revision" : "7992d77065f2787e7651cf6d9be9b99ad38f5166",
+        "version" : "1.2.1"
       }
     },
     {

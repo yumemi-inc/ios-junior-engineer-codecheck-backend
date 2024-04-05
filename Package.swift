@@ -21,9 +21,9 @@ let package = Package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
         ),
-        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.2.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.2.1"),
         .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.3.2"),
-        .package(url: "https://github.com/novr/swift-openapi-compute", from: "0.1.2"),
+        .package(url: "https://github.com/novr/swift-openapi-compute", from: "0.2.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
