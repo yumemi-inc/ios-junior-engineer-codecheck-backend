@@ -11,7 +11,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
         .package(
             url: "https://github.com/swift-cloud/Compute",
-            from: "2.18.0"
+            from: "3.1.0"
         ),
 //        .package(
 //            url: "https://github.com/johnsundell/ink.git",
