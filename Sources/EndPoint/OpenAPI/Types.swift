@@ -173,35 +173,28 @@ internal enum Components {
             ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/capital`.
             internal var capital: Swift.String
+            /// Result prefecture's citizen date (if it has one).
+            ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
             internal struct citizen_dayPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value1`.
                 internal var value1: Components.Schemas.MonthDay
-                /// Result prefecture's citizen date (if it has one).
-                ///
-                /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day/value2`.
-                internal var value2: OpenAPIRuntime.OpenAPIValueContainer
                 /// Creates a new `citizen_dayPayload`.
                 ///
                 /// - Parameters:
                 ///   - value1:
-                ///   - value2: Result prefecture's citizen date (if it has one).
-                internal init(
-                    value1: Components.Schemas.MonthDay,
-                    value2: OpenAPIRuntime.OpenAPIValueContainer
-                ) {
+                internal init(value1: Components.Schemas.MonthDay) {
                     self.value1 = value1
-                    self.value2 = value2
                 }
                 internal init(from decoder: any Decoder) throws {
                     value1 = try .init(from: decoder)
-                    value2 = try .init(from: decoder)
                 }
                 internal func encode(to encoder: any Encoder) throws {
                     try value1.encode(to: encoder)
-                    try value2.encode(to: encoder)
                 }
             }
+            /// Result prefecture's citizen date (if it has one).
+            ///
             /// - Remark: Generated from `#/components/schemas/MyFortuneResponse/citizen_day`.
             internal var citizen_day: Components.Schemas.MyFortuneResponse.citizen_dayPayload?
             /// Whether result prefecture has a coast line or not.
@@ -218,7 +211,7 @@ internal enum Components {
             ///   - name: Result prefecture's name.
             ///   - brief: Result prefecture's brief instruction.
             ///   - capital: Result prefecture's capital city.
-            ///   - citizen_day:
+            ///   - citizen_day: Result prefecture's citizen date (if it has one).
             ///   - has_coast_line: Whether result prefecture has a coast line or not.
             ///   - logo_url: Result prefecture's logo's URL.
             internal init(
