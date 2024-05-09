@@ -46,6 +46,7 @@ struct APIService : APIProtocol {
             name: result.name,
             brief: result.brief,
             capital: result.capital,
+            citizen_day: result.citizenDay.map { .init(value1: .init(month: $0.month, day: $0.day)) },
             has_coast_line: result.hasCoastLine,
             logo_url: result.logoURL.absoluteString))))
     }
