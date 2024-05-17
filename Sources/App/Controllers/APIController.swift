@@ -1,32 +1,20 @@
 //
-//  File.swift
-//  
+//  APIController.swift
 //
-//  Created by 古宮 伸久 on 2023/06/19.
+//
+//  Created by 古宮 伸久 on 2024/05/16.
 //
 
-import Compute
+import Foundation
 import FakeFortuneTelling
 
 enum APIServiceError: Error {
     case InvalidateInput
 }
 
-struct APIService : APIProtocol {
-
-    init(router: Router) {
-        router.get("", handleIndexRoute(request:response:))
-    }
-
-    func handleIndexRoute(request: IncomingRequest, response: OutgoingResponse) async throws {
-        try await response
-            .status(.ok)
-            .send(html: Index().html)
-    }
-
-    func post_hyphen_my_hyphen_fortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws
-        -> Operations.post_hyphen_my_hyphen_fortune.Output {
-            let version = input.headers.API_hyphen_Version ?? .v1
+struct APIController: APIProtocol {
+    func post_hyphen_my_hyphen_fortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws -> Operations.post_hyphen_my_hyphen_fortune.Output {
+        let version = input.headers.API_hyphen_Version ?? .v1
         switch version {
         case .v1:
             return try await askFortune(input)
@@ -47,7 +35,7 @@ struct APIService : APIProtocol {
             brief: result.brief,
             capital: result.capital,
             has_coast_line: result.hasCoastLine,
-            logo_url: result.logoURL.absoluteString))))
+            logo_url: result.logoURL?.absoluteString ?? ""))))
     }
 }
 
@@ -56,6 +44,7 @@ extension Name {
         try self.init(text: input)
     }
 }
+
 extension BloodType {
     init(_ input: Components.Schemas.MyFortuneRequest.blood_typePayload) throws {
         switch input {
@@ -70,5 +59,21 @@ extension BloodType {
 extension YearMonthDay {
     init(_ input: Components.Schemas.YearMonthDay) throws {
         try self.init(year: input.year, month: input.month, day: input.day)
+    }
+}
+
+extension Prefecture {
+    private var spell: String {
+        switch self {
+        case .gunma:
+            return "gumma"
+            
+        default:
+            return "\(self)"
+        }
+    }
+    
+    var logoURL: URL? {
+        .init(string: "https://japan-map.com/wp-content/uploads/\(spell).png")
     }
 }

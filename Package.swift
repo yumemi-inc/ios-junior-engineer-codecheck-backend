@@ -1,45 +1,52 @@
-// swift-tools-version: 5.9
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.10
 import PackageDescription
 
 let package = Package(
     name: "ios-junior-engineer-codecheck-backend",
     platforms: [.macOS(.v13)],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-        .package(
-            url: "https://github.com/swift-cloud/Compute",
-            from: "3.1.0"
-        ),
-//        .package(
-//            url: "https://github.com/johnsundell/ink.git",
-//            from: "0.5.1"
-//        ),
+        // 💧 A server-side Swift web framework.
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.99.3"),
+        // 🔵 Non-blocking, event-driven networking for Swift. Used for custom executors
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.65.0"),
         .package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
         ),
         .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.2.1"),
         .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.3.2"),
-        .package(url: "https://github.com/novr/swift-openapi-compute", from: "0.2.0"),
+        .package(url: "https://github.com/swift-server/swift-openapi-vapor", from: "1.0.1"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .executableTarget(
-            name: "EndPoint",
+            name: "App",
             dependencies: [
-                .product(name: "Compute", package: "Compute"),
-//                .product(name: "Ink", package: "ink"),
+                .product(name: "Vapor", package: "vapor"),
+                .product(name: "NIOCore", package: "swift-nio"),
+                .product(name: "NIOPosix", package: "swift-nio"),
                 .product(name: "FakeFortuneTelling", package: "fake-fortune-telling"),
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "OpenAPICompute", package: "swift-openapi-compute"),
+                .product(name: "OpenAPIVapor", package: "swift-openapi-vapor"),
+            ],
+            swiftSettings: swiftSettings,
+            plugins: [
+                .plugin(name: "OpenAPIGenerator", package: "swift-openapi-generator"),
             ]
         ),
         .testTarget(
-            name: "EndPointTests",
-            dependencies: ["EndPoint"]),
+            name: "AppTests",
+            dependencies: [
+                .target(name: "App"),
+                .product(name: "XCTVapor", package: "vapor"),
+            ],
+            swiftSettings: swiftSettings
+        ),
     ]
 )
+
+var swiftSettings: [SwiftSetting] { [
+    .enableUpcomingFeature("DisableOutwardActorInference"),
+    .enableExperimentalFeature("StrictConcurrency"),
+] }
