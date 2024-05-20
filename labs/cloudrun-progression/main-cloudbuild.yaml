@@ -27,10 +27,9 @@ steps:
       - "-t"
       - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA"
       - "-t"
-      - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET}"
+      - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:latest"
       - "."
-      - "--cache-from=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET}"
-      - "--cache-from=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
+      - "--cache-from=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:latest"
 
 ### Push
   - id: "push image"
@@ -41,7 +40,7 @@ steps:
       - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
 
 ### Deploy
-  - id: "deploy feature service"
+  - id: "deploy prod service"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: "bash"
     args: 
@@ -51,5 +50,4 @@ steps:
             --platform managed \
             --region ${_REGION} \
             --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA \
-            --no-traffic \
             --allow-unauthenticated

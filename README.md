@@ -1,7 +1,9 @@
 # ios-junior-engineer-codecheck-backend
 
-iOS未経験者エンジニア向けの採用コードチェックに使うバックエンドです。詳細は[デプロイ先](https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud)をご覧ください。
+iOS 未経験者エンジニア向けの採用コードチェックに使うバックエンドです。詳細は[デプロイ先][service]をご覧ください。
 
 ## warning
 
-PRのbranch名は6文字以内にしてください
+PR の branch 名は 6 文字以内にしてください
+
+[service]: https://ios-junior-engineer-codecheck-snefnyqv2q-an.a.run.app
