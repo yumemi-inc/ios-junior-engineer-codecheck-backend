@@ -22,12 +22,20 @@ steps:
 ### Build
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}", "."]
+    args:
+      - "build"
+      - "-t"
+      - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET}"
+      - "."
+      - "--cache-from=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET}"
+      - "--cache-from=gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
 
 ### Push
   - id: "push image"
     name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"]
+    args: 
+      - "push"
+      - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET}"
 
 ### Deploy
   - id: "deploy prod service"
@@ -39,6 +47,5 @@ steps:
           gcloud run deploy ${_SERVICE_NAME} \
             --platform managed \
             --region ${_REGION} \
-            --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME} \
-            --tag=${BRANCH_NAME//\//-} \
+            --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:${_BRANCH_TARGET} \
             --no-traffic
