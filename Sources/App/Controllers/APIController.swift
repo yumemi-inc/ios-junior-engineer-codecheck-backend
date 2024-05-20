@@ -25,28 +25,25 @@ struct APIController: APIProtocol {
         guard case let .json(body) = input.body else {
             throw APIServiceError.InvalidateInput
         }
+        let birthday = body.birthday.value1
+        let today = body.today.value1
         let result = try FortuneTeller.prefectureForYou(
-            name: .init(body.name),
-            birthday: .init(body.birthday.value1),
+            name: .init(text: body.name),
+            birthday: .init(year: birthday.year, month: birthday.month, day: birthday.day),
             bloodType: .init(body.blood_type),
-            today: .init(body.today.value1))
+            today: .init(year: today.year, month: today.month, day: today.day))
         return .ok(.init(body: .json(.init(
             name: result.name,
             brief: result.brief,
             capital: result.capital,
+            citizen_day: result.citizenDay.map { .init(value1: .init(month: $0.month, day: $0.day)) },
             has_coast_line: result.hasCoastLine,
             logo_url: result.logoURL?.absoluteString ?? ""))))
     }
 }
 
-extension Name {
-    init(_ input: String) throws {
-        try self.init(text: input)
-    }
-}
-
 extension BloodType {
-    init(_ input: Components.Schemas.MyFortuneRequest.blood_typePayload) throws {
+    init(_ input: Components.Schemas.MyFortuneRequest.blood_typePayload) {
         switch input {
         case .a: self = .a
         case .b: self = .b
@@ -56,24 +53,12 @@ extension BloodType {
     }
 }
 
-extension YearMonthDay {
-    init(_ input: Components.Schemas.YearMonthDay) throws {
-        try self.init(year: input.year, month: input.month, day: input.day)
-    }
-}
-
 extension Prefecture {
-    private var spell: String {
-        switch self {
-        case .gunma:
-            return "gumma"
-            
-        default:
-            return "\(self)"
-        }
-    }
-    
     var logoURL: URL? {
-        .init(string: "https://japan-map.com/wp-content/uploads/\(spell).png")
+        let name = switch self {
+            case .gunma: "gumma"
+            default: "\(self)"
+        }
+        return .init(string: "https://japan-map.com/wp-content/uploads/\(name).png")
     }
 }
