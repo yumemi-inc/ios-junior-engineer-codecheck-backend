@@ -52,4 +52,5 @@ steps:
             --region ${_REGION} \
             --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$SHORT_SHA \
             --no-traffic \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --tag ${_BRANCH_TARGET}
