@@ -19,7 +19,7 @@ x-shared_environment: &shared_environment
   
 services:
   app:
-    image: ios-junior-engineer-codecheck-backend:latest
+    image: ios-junior-engineer-codecheck:latest
     build:
       context: .
     environment:
