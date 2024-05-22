@@ -2,9 +2,9 @@ name: redoc
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - 'openapi.yaml'
+      - "Sources/App/openapi.yaml"
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       - name: Build ReDoc HTML
         run: |
           npm install -g redoc-cli
-          redoc-cli bundle openapi.yaml
+          redoc-cli bundle Sources/App/openapi.yaml
           mkdir pages
           mv redoc-static.html pages/openapi.html
 
@@ -37,7 +37,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     environment:
       name: github-pages
