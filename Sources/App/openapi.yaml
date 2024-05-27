@@ -3,7 +3,7 @@ info:
   title: ios-junior-engineer-codecheck-backend
   version: 1.0.1
 servers:
-  - url: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
+  - url: https://ios-junior-engineer-codecheck.yumemi.jp/
 paths:
   /my_fortune:
     post:
@@ -37,7 +37,7 @@ paths:
     x-code-samples:
       - lang: shell
         source: |
-          curl -X POST "https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud/my_fortune" \
+          curl -X POST "https://ios-junior-engineer-codecheck.yumemi.jp/my_fortune" \
             -H "API-Version: v1" \
             -H "Content-Type: application/json" \
             -d '{"name": "ゆめみん", "birthday": {"year": 2000, "month": 1, "day": 27}, "blood_type": "ab", "today": {"year": 2023, "month": 5, "day": 5}}'
