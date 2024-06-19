@@ -9,6 +9,6 @@ public func configure(_ app: Application) async throws {
     )
     // register routes
     let transport = VaporTransport(routesBuilder: app)
-    let controller = APIController()
+    let controller = APIController(apiQuality: .sometimesFails(probability: 0.25))
     try controller.registerHandlers(on: transport)
 }
