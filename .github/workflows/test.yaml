@@ -21,4 +21,4 @@ jobs:
           swift-version: ${{ env.SWIFT_VERSION }}
 
       - name: Run tests
-        run: swift test --enable-test-discovery
+        run: swift test
