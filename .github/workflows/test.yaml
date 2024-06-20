@@ -1,4 +1,4 @@
-name: test
+name: test & deploy
 
 on:
   pull_request:
@@ -6,6 +6,7 @@ on:
 
 env:
   SWIFT_VERSION: "5.10"
+  PROJECT_ID: "ios-junior-engineer-codecheck"
 
 jobs:
   test:
@@ -21,4 +22,29 @@ jobs:
           swift-version: ${{ env.SWIFT_VERSION }}
 
       - name: Run tests
-        run: swift test
+        run: swift test --skip-update --force-resolved-versions
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    needs: test
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: "projects/265146415892/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Trigger Cloud Build
+        run: gcloud builds submit --config=labs/cloudrun-progression/branch-cloudbuild.yaml .
