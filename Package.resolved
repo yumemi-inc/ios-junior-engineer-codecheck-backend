@@ -1,5 +1,5 @@
 {
-  "originHash" : "b2abcfde15a6668548e5ed090464c6c8f2c9874f53045fadcb1a58229e71a34f",
+  "originHash" : "e04effb4056fc4f85c5ac0903fd355e0311d720a75fcdd4cfea8ea2f7fe79ea1",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "359c461e5561d22c6334828806cc25d759ca7aa6",
-        "version" : "2.65.0"
+        "revision" : "e5a216ba89deba84356bad9d4c2eab99071c745b",
+        "version" : "2.67.0"
       }
     },
     {
@@ -204,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-runtime",
       "state" : {
-        "revision" : "76951d77a0609599d2dc233e7e40808a74767c6a",
-        "version" : "1.3.2"
+        "revision" : "9a8291fa2f90cc7296f2393a99bb4824ee34f869",
+        "version" : "1.4.0"
       }
     },
     {
@@ -231,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "90da64ad52ee595d199212338b89995bcab99d0e",
-        "version" : "4.100.0"
+        "revision" : "ebbe71c89aa1b76a0920277760b12be7a2ec7c70",
+        "version" : "4.102.0"
       }
     },
     {
