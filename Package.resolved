@@ -1,5 +1,5 @@
 {
-  "originHash" : "b2abcfde15a6668548e5ed090464c6c8f2c9874f53045fadcb1a58229e71a34f",
+  "originHash" : "a10f24eaae04049548c27087a785da2e645b89448da9b4a04da86aac02c9236a",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -204,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-runtime",
       "state" : {
-        "revision" : "76951d77a0609599d2dc233e7e40808a74767c6a",
-        "version" : "1.3.2"
+        "revision" : "9a8291fa2f90cc7296f2393a99bb4824ee34f869",
+        "version" : "1.4.0"
       }
     },
     {
@@ -231,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/vapor.git",
       "state" : {
-        "revision" : "90da64ad52ee595d199212338b89995bcab99d0e",
-        "version" : "4.100.0"
+        "revision" : "f1c3495b5c35ab67881412acf20144112729b560",
+        "version" : "4.101.3"
       }
     },
     {
