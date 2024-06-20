@@ -10,10 +10,13 @@ import FakeFortuneTelling
 
 enum APIServiceError: Error {
     case InvalidateInput
+    case unknown
 }
 
 struct APIController: APIProtocol {
+
     func post_hyphen_my_hyphen_fortune(_ input: Operations.post_hyphen_my_hyphen_fortune.Input) async throws -> Operations.post_hyphen_my_hyphen_fortune.Output {
+
         let version = input.headers.API_hyphen_Version ?? .v1
         switch version {
         case .v1:
