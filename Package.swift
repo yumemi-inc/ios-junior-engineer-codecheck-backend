@@ -8,7 +8,7 @@ let package = Package(
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.102.0"),
         // 🔵 Non-blocking, event-driven networking for Swift. Used for custom executors
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.67.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.68.0"),
         .package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
