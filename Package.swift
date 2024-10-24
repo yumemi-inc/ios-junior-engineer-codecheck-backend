@@ -6,15 +6,15 @@ let package = Package(
     platforms: [.macOS(.v13)],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.102.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.106.1"),
         // 🔵 Non-blocking, event-driven networking for Swift. Used for custom executors
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.67.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.76.1"),
         .package(
             url: "https://github.com/yumemi-inc/fake-fortune-telling",
             from: "0.2.5"
         ),
-        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.2.1"),
-        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.4.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.4.0"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.5.0"),
         .package(url: "https://github.com/swift-server/swift-openapi-vapor", from: "1.0.1"),
     ],
     targets: [
