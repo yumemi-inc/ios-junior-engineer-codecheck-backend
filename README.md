@@ -6,4 +6,4 @@ iOS 未経験者エンジニア向けの採用コードチェックに使うバ�
 
 PR の branch 名は 6 文字以内にしてください
 
-[service]: https://ios-junior-engineer-codecheck.yumemi.jp
+[service]: https://yumemi-ios-junior-engineer-codecheck.app.swift.cloud
